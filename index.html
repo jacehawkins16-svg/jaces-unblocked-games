@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jaces Games - 25 Games</title>
-    <!-- Website Icon (Favicon) -->
     <link rel="icon" type="image/png" href="icon.png"> 
-    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Rubik:wght@700&display=swap" rel="stylesheet">
     <style>
         /* Custom font and Darker Blue Background */
@@ -119,23 +116,20 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2038218004781592"
      crossorigin="anonymous"></script>
 </head>
-<body class="min-h-screen p-4 sm:p-8">
+<body class="min-h-screen p-4 sm:p-8 relative"> <div class="absolute top-4 right-4 text-white text-opacity-50 text-sm font-medium">
+        v1.0.0
+    </div>
 
-    <!-- Main Container -->
     <div class="main-container w-full max-w-6xl mx-auto text-center p-6 sm:p-10 rounded-3xl border border-slate-700">
         <h1 class="text-4xl sm:text-5xl font-extrabold mb-2 animated-title" style="font-family: 'Rubik', sans-serif;">
             Jaces Unblocked Games
         </h1>
         
-        <!-- Dynamic, Color-Changing, Fading Subtitle -->
         <p id="dynamic-subtitle" class="text-xl sm:text-2xl font-semibold mb-10">
-            <!-- Content set by JavaScript -->
-        </p>
+            </p>
 
-        <!-- Game Grid (4 columns on larger screens, 3 on tablets, 2 on mobile) -->
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
 
-            <!-- Helper function for game card generation -->
             <script>
                 // This function is for dynamic content creation/linking and will be inlined.
                 // The 'placeholder' argument is now always set to false, indicating all games are available.
@@ -165,13 +159,6 @@
                 }
             </script>
 
-            <!-- 
-            Game List (25 Total) - Sorted Alphabetically
-            ----------------------------------------------------------------------------------------------------
-            All games are now treated as playable (placeholder=false).
-            -->
-
-            <!-- Sorted Games (25) -->
             <script>createGameCard('/games/99 Nights in the Forest.html', 'icons/99 nights.webp', '99 Nights');</script>
             <script>createGameCard('/games/99% will lose.html', 'icons/99 percent will fail.webp', '99% Will Fail');</script>
             <script>createGameCard('./games/Baldis Basics Camping.html', 'icons/baldis camping.jpg', 'Baldis Basics Camping');</script>
@@ -200,18 +187,15 @@
 
         </div>
         
-        <!-- Note Text - Updated to reflect all games are available -->
         <p class="mt-8 text-sm text-gray-400">
             Note: All 25 games are currently available! Enjoy playing!
         </p>
         
-        <!-- Glowing Red Warning Text -->
         <p class="mt-2 text-sm glowing-red">
             At the moment, some games on chrome do no work do to Unity WebGL not working in the browser.
         </p>
     </div>
 
-    <!-- JavaScript for Dynamic Subtitle with Random Order and No Repeats -->
     <script>
         const subtitleElement = document.getElementById('dynamic-subtitle');
         const phrases = [
@@ -220,11 +204,41 @@
             "25 games and counting! Find your next favorite.",
             "Play anywhere, anytime. All games are unblocked.",
             "Psst... you should probably click on Cookie Clicker. Just saying.", // Funny message 1
+            "Your internet history is safe with us... probably.", // NEW FUNNY 1
             "Warning: May cause extreme fun. Proceed with caution!", // Funny message 2
+            "Boredom is a lie. Play these instead of doing your homework.", // NEW FUNNY 2
             "Don't worry, these games are school-approved... by us!", // Funny message 3
+            "My therapist told me to embrace my inner child. So I played Ultrakill.", // NEW FUNNY 3
             "Check out our full list, from FNAF to Minecraft!", // More info 1
+            "Proof that procrastination can be productive. Sort of.", // NEW FUNNY 4
             "New games are added regularly, so check back soon!", // More info 2
+            "Shhh! Don't tell your IT admin we're here.", // NEW FUNNY 5
             "Did you know Paper.io 2 is a classic? Give it a try!", // More info 3
+            "We've optimized this site for maximum fun and minimal attention span.", // NEW FUNNY 6
+            "Escape the boredom with games like Granny and Baldis Basics!",
+            "Remember to blink. And maybe stretch.", // NEW FUNNY 7
+            "Need a quick break? Snow Rider 3D is waiting.",
+            "If you get caught, blame the guy who coded the flashing title.", // NEW FUNNY 8
+            "Challenge your reflexes with Geometry Dash Wave.",
+            "Warning: May cause intense focus on non-school-related activities.", // NEW FUNNY 9
+            "We've got the classics and the new hits—all unblocked.",
+            "Why study when you can click a cookie 10,000 times?", // NEW FUNNY 10
+            "Unleash your inner gamer. Explore the collection!",
+            "Find fun in every click. Start playing now!",
+            "From simple clickers to intense survival—we have it all.",
+            "Explore 25 different worlds right here.",
+            "No downloads, just instant gaming fun!",
+            "Having a bad day? A little Ultrakill might help.",
+            "Don't forget to check out Chicken Battle!",
+            "Is the principal watching? Good. Play anyway.",
+            "Your favorite games, 100% unblocked and ready.",
+            "Feeling competitive? Try Kart Bros.io!",
+            "The best way to spend a few minutes (or hours).",
+            "Get ready for some classic Slither.io action.",
+            "Which game will you master first?",
+            "Click on the icon to start your adventure!",
+            "Fresh games and classic thrills are waiting for you.",
+            "We make sure the fun is never blocked. Enjoy!",
         ];
         let currentIndex = -1; // Use -1 to ensure the first pick is always valid
         const intervalTime = 10000; // 10 seconds
@@ -266,6 +280,3 @@
 </body>
 
 </html>
-
-
-
