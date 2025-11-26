@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaces Unblocked Games - 26 Games</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for a modern look */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+        }
+        /* Custom styling for a subtle hover effect on the name text, using a consistent teal color */
+        .link-card:hover + .item-name {
+            color: #0d9488; /* Teal-600 on hover */
+        }
+        .item-name {
+            transition: color 0.2s ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 sm:p-8">
+
+    <!-- Main Container -->
+    <div class="w-full max-w-6xl mx-auto text-center bg-white p-6 sm:p-10 rounded-3xl shadow-xl">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-800 mb-2">
+            Jaces Unblocked Games
+        </h1>
+        <p class="text-lg text-gray-600 mb-10">
+            Now featuring all 26 available games! Click on an image to play.
+        </p>
+
+        <!-- Game Grid (4 columns on larger screens, 3 on tablets, 2 on mobile) -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
+
+            <!-- Helper function for game card generation -->
+            <script>
+                // This function is for dynamic content creation/linking and will be inlined.
+                // In a real application, you'd use a framework like React or Vue.
+                function createGameCard(link, imageSrc, name, placeholder = false) {
+                    const fallbackImg = "https://placehold.co/400x400/94a3b8/ffffff?text=Image+Unavailable";
+                    const gameHtml = `
+                    <div class="group">
+                        <a 
+                            href="${link}" 
+                            target="_blank" 
+                            class="link-card block transition-transform duration-300 hover:scale-[1.03] focus:outline-none focus:ring-4 focus:ring-teal-400 focus:ring-opacity-50 rounded-xl"
+                            aria-label="Click to play ${name}"
+                        >
+                            <img 
+                                src="${imageSrc}" 
+                                alt="Icon for ${name} game" 
+                                class="w-full h-auto aspect-square object-cover rounded-xl shadow-lg border-4 border-white transform transition-shadow duration-300 group-hover:shadow-xl group-hover:shadow-teal-500/50"
+                                onerror="this.onerror=null; this.src='${fallbackImg}';"
+                            >
+                        </a>
+                        <p class="item-name mt-3 text-base font-semibold text-gray-700 transition-colors duration-200 ${placeholder ? 'text-red-500 italic' : ''}">
+                            ${name} ${placeholder ? ' (Placeholder)' : ''}
+                        </p>
+                    </div>
+                    `;
+                    document.write(gameHtml);
+                }
+            </script>
+
+            <!-- 
+            Game List (26 Total) 
+            ----------------------------------------------------------------------------------------------------
+            The first 16 games have corresponding HTML files.
+            The last 10 games use a placeholder link as the game file is not yet available.
+            -->
+
+            <!-- Playable Games (16) -->
+            <script>createGameCard('./games/Baldis Basics Camping.html', 'icons/baldis camping.jpg', 'Baldis Basics Camping');</script>
+            <script>createGameCard('./games/Cookie Clicker.html', 'icons/cookie clicker.jpg', 'Cookie Clicker');</script>
+            <script>createGameCard('./games/Duck Duck Clicker.html', 'icons/duck duck clicker.png', 'Duck Duck Clicker');</script>
+            <script>createGameCard('./games/Five Nights At Freddys Free Roam.html', 'icons/fnaf3d.jpg', 'FNAF 3D');</script>
+            <script>createGameCard('./games/Geometry Dash Wave Challenge.html', 'icons/gd wave.png', 'Geometry Dash Wave');</script>
+            <script>createGameCard('./games/Granny.html', 'icons/granny.jpg', 'Granny');</script>
+            <script>createGameCard('./games/Granny 2.html', 'icons/granny 2.png', 'Granny 2');</script>
+            <script>createGameCard('./games/Granny Multiplayer.html', 'icons/granny multiplayer.png', 'Granny Multiplayer');</script>
+            <script>createGameCard('./games/Kart Bros.io.html', 'icons/kart bros.jpg', 'Kart Bros.io');</script>
+            <script>createGameCard('./games/Paper.io 2.html', 'icons/paper io 2.jpg', 'Paper.io 2');</script>
+            <script>createGameCard('./games/Gunspin.html', 'icons/gunspin.webp', 'Gunspin');</script>
+            <script>createGameCard('./games/Snow Rider 3d.html', 'icons/snow rider 3d.jpg', 'Snow Rider 3D');</script>
+            <script>createGameCard('./games/Ultrakill.html', 'icons/ultrakill.jpg', 'Ultrakill');</script>
+            <script>createGameCard('./games/Soccer But You Are A Car.html', 'icons/soccer battle.webp', 'Soccer But You Are A Car');</script>
+            <script>createGameCard('./games/Survival Race.html', 'icons/survival race.webp', 'Survival Race');</script>
+            <script>createGameCard('./games/They Are Coming.html', 'icons/they are coming.webp', 'They Are Coming');</script>
+
+            <!-- Placeholder Games (10) -->
+            <script>createGameCard('/games/+1 Speed Per Second.html', 'icons/1 speed per second.png', '+1 Speed Per Second', true);</script>
+            <script>createGameCard('/games/99 Nights in the Forest.html', 'icons/99 nights.webp', '99 Nights', true);</script>
+            <script>createGameCard('/games/99% will lose.html', 'icons/99 percent will fail.webp', '99% Will Fail', true);</script>
+            <script>createGameCard('/games/Chicken Battle.html', 'icons/battle chicken.webp', 'Chicken Battle', true);</script>
+            <script>createGameCard('/games/Elytra Coming.html', 'icons/elytras coming.jpg', 'Elytras Coming', true);</script>
+            <script>createGameCard('/games/OvO.html', 'ovo.png', 'icons/OVO', true);</script>
+            <script>createGameCard('/games/Slither v2.html', 'icons/slither io.webp', 'Slither.io', true);</script>
+            <script>createGameCard('/games/Steal A Brainrot.html', 'icons/steal a brainrot.webp', 'Steal A Brainrot', true);</script>
+            <script>createGameCard('/Snowboard Obby.html', 'icons/snowboard obby.png', 'Snowboard Obby', true);</script>
+            <script>createGameCard('/games/Minecraft v1.8.8.html', 'icons/1 8 8 icon.jpg', 'Minecraft 1.8.8', true);</script>
+
+        </div>
+        
+        <p class="mt-8 text-sm text-gray-500">
+            Note: Games marked with (Placeholder) do not have a playable file yet.
+        </p>
+    </div>
+
+</body>
+</html>
