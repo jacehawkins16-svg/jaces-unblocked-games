@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jaces Games - 25 Games</title>
     <link rel="icon" type="image/png" href="icon.png"> 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Rubik:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Rubik:wght=700&display=swap" rel="stylesheet">
     <style>
         /* === CUSTOM FONT DEFINITION === */
-        /* You must place 'SuperJoyful-lxwPq.ttf' in the same directory as this index.html file */
         @font-face {
             font-family: 'SuperJoyful';
             src: url('SuperJoyful-lxwPq.ttf') format('truetype');
@@ -17,154 +15,197 @@
             font-style: normal;
         }
 
-        /* Custom font and Darker Blue Background */
+        /* * === FILTER-RESISTANT BASE STYLES === */
         body {
-            /* Apply SuperJoyful to the entire body */
-            font-family: 'SuperJoyful', 'Inter', sans-serif;
-            background-color: #0f172a; /* Slate-900: Very dark blue */
+            font-family: 'SuperJoyful', 'Inter', sans-serif !important;
+            background-color: #0f172a !important;
+            min-height: 100vh !important;
+            padding: 0.5rem 1rem 2rem 1rem !important; 
+            position: relative !important;
+            line-height: 1.5 !important; 
         }
         
-        /* The main title and sub-elements will now inherit this font */
-        
-        /* === Custom Scrollbar Styling === */
-        /* Targets the entire scrollbar */
-        body::-webkit-scrollbar {
-            width: 12px;
+        /* Version Tag: Forced Position */
+        .version-tag {
+            position: absolute !important;
+            top: 0.25rem !important;
+            right: 0.75rem !important;
+            color: rgba(226, 232, 240, 0.5) !important;
+            font-size: 0.875rem !important;
+            font-weight: 500 !important;
         }
 
-        /* Targets the track (the space the thumb moves in) */
-        body::-webkit-scrollbar-track {
-            background: #0f172a; /* Same as body background */
-        }
-
-        /* Targets the thumb (the draggable part) */
-        body::-webkit-scrollbar-thumb {
-            background-color: #334155; /* Slate-700: Dark gray/blue for the thumb */
-            border-radius: 20px;
-            border: 3px solid #0f172a; /* Padding around the thumb, same color as body */
-        }
-
-        /* Targets the thumb on hover for better UX */
-        body::-webkit-scrollbar-thumb:hover {
-            background-color: #475569; /* Slightly lighter shade on hover */
-        }
-
-        /* Style for the main container in dark mode */
+        /* Main Container: Force Layout and Dark Mode */
         .main-container {
-            background-color: #1e293b; /* Slate-800: Slightly lighter card background */
-            color: #e2e8f0; /* Light text for readability */
-            border-radius: 1.5rem; /* Large rounded corners */
+            width: 100% !important;
+            max-width: 1152px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            text-align: center !important;
+            padding: 1rem 2.5rem 2.5rem 2.5rem !important; /* Top padding is 1rem */
+            background-color: #1e293b !important; 
+            color: #e2e8f0 !important; 
+            border-radius: 1.5rem !important; 
+            border: 1px solid #334155 !important; 
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 
-                        0 8px 10px -6px rgba(0, 0, 0, 0.5); /* Stronger shadow */
-        }
-        /* Custom styling for hover effect on game name */
-        .item-name {
-            /* === MODIFIED: Set to 1.4rem (40% larger than 1rem) for single-line fit === */
-            font-size: 1.4rem; 
-            transition: color 0.2s ease;
-        }
-        .link-card:hover + .item-name {
-            color: #34d399; /* Emerald-400 on hover */
+                        0 8px 10px -6px rgba(0, 0, 0, 0.5) !important;
         }
         
-        /* === ANIMATED GRADIENT TITLE EFFECT === */
-        .animated-title {
-            /* Create a background gradient that is longer than the text width */
-            background: linear-gradient(
-                90deg, 
-                #60a5fa, /* Blue */
-                #facc15, /* Yellow */
-                #ef4444, /* Red */
-                #8b5cf6, /* Violet */
-                #34d399  /* Emerald */
-            );
-            background-size: 200% auto; /* Make the gradient twice as wide for movement */
+        /* Header and Subtitle Margins */
+        h1 {
+            margin-top: 0 !important; 
+            font-size: 3rem !important; 
+            font-weight: 800 !important; 
             
-            /* Apply the gradient to the text only */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            /* CRITICAL FIX: Drastically reduced bottom margin (was 0.25rem) */
+            margin-bottom: 0 !important; 
+        }
+        #dynamic-subtitle {
+            /* CRITICAL FIX: Removed margin-top (default is 0), significantly reduced margin-bottom (was 2rem) */
+            margin-top: 0.5rem !important; /* Add small space below title */
+            margin-bottom: 1.5rem !important; /* Reduced space above the game grid (was mb-8) */
             
-            /* Animation for moving the gradient */
-            animation: gradient-shift 4s linear infinite;
+            font-size: 1.5rem !important; 
+            font-weight: 600 !important; 
+            animation: color-cycle 10s infinite alternate !important; 
         }
 
-        @keyframes gradient-shift {
-            to {
-                /* Shift the background 100% to the left to create a moving effect */
-                background-position: -200% center;
+        /* Grid Layout */
+        .game-grid {
+            display: grid !important;
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important; 
+            gap: 1.5rem !important;
+        }
+        @media (min-width: 640px) {
+            .game-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+                gap: 2rem !important;
             }
         }
+        @media (min-width: 1024px) { 
+            .game-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+            }
+        }
+        
+        /* Game Card Styles */
+        .link-card {
+            display: block !important;
+            transition: transform 0.3s ease !important;
+            border-radius: 0.75rem !important;
+        }
+        .link-card:hover {
+            transform: scale(1.05) !important;
+        }
+        .link-card img {
+            width: 100% !important;
+            height: auto !important;
+            aspect-ratio: 1 / 1 !important;
+            object-fit: cover !important;
+            border-radius: 0.75rem !important;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.3) !important;
+            border: 4px solid #334155 !important;
+            transition: all 0.3s ease !important;
+        }
+        .group:hover .link-card img {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 15px rgba(52, 211, 153, 0.5) !important; 
+        }
+        
+        /* Game Name Styles */
+        .item-name {
+            font-size: 1.4rem !important; 
+            font-weight: 600 !important; 
+            margin-top: 0.75rem !important;
+            color: #e5e5e5 !important; 
+            transition: color 0.2s ease !important;
+        }
+        .group:hover .item-name {
+            color: #34d399 !important; 
+        }
 
-        /* === Dynamic Subtitle Fade Transition === */
+        /* Footer Text Styles */
+        .footer-note {
+            margin-top: 2rem !important; 
+            font-size: 0.875rem !important; 
+            color: #9ca3af !important; 
+        }
+        .glowing-red {
+            margin-top: 0.5rem !important; 
+            color: #ff3333 !important; 
+            animation: glowing-red 1.5s infinite alternate !important;
+            font-weight: bold !important;
+            font-size: 0.875rem !important;
+        }
+        
+        /* Scrollbar and Animation Keyframes (No Change) */
+        body::-webkit-scrollbar { width: 12px; }
+        body::-webkit-scrollbar-track { background: #0f172a; }
+        body::-webkit-scrollbar-thumb { background-color: #334155; border-radius: 20px; border: 3px solid #0f172a; }
+        body::-webkit-scrollbar-thumb:hover { background-color: #475569; }
+
+        .animated-title {
+            background: linear-gradient(90deg, #60a5fa, #facc15, #ef4444, #8b5cf6, #34d399);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 4s linear infinite;
+        }
+        @keyframes gradient-shift {
+            to { background-position: -200% center; }
+        }
+
         #dynamic-subtitle {
             opacity: 1;
-            transition: opacity 1s ease-in-out; /* Only opacity transition for text change */
-            /* Continuous color cycling animation is now applied to the subtitle's color property */
-            animation: color-cycle 10s infinite alternate; 
+            transition: opacity 1s ease-in-out;
         }
         #dynamic-subtitle.fade-out {
             opacity: 0;
         }
-
-        /* === Continuous Color Cycle Animation (for SUBTITLE) === */
         @keyframes color-cycle {
-            0%   { color: #8b5cf6; } /* Violet */
-            25%  { color: #34d399; } /* Emerald */
-            50%  { color: #facc15; } /* Yellow */
-            75%  { color: #f87171; } /* Red */
-            100% { color: #8b5cf6; } /* Back to Violet */
+            0%   { color: #8b5cf6; } 25%  { color: #34d399; } 50%  { color: #facc15; } 75%  { color: #f87171; } 100% { color: #8b5cf6; }
         }
-
-        /* === Glowing Red Warning Text === */
         @keyframes glowing-red {
             0% { text-shadow: 0 0 5px rgba(255, 0, 0, 0.5), 0 0 10px rgba(255, 0, 0, 0.4); }
             50% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px rgba(255, 0, 0, 0.8); }
             100% { text-shadow: 0 0 5px rgba(255, 0, 0, 0.5), 0 0 10px rgba(255, 0, 0, 0.4); }
         }
-        .glowing-red {
-            color: #ff3333; /* Bright red */
-            animation: glowing-red 1.5s infinite alternate;
-            font-weight: bold;
-        }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2038218004781592"
      crossorigin="anonymous"></script>
 </head>
-<body class="min-h-screen p-4 sm:p-8 relative"> <div class="absolute top-4 right-4 text-white text-opacity-50 text-sm font-medium">
+<body class="relative"> 
+    <div class="version-tag">
         v1.0.0
     </div>
 
-    <div class="main-container w-full max-w-6xl mx-auto text-center p-6 sm:p-10 rounded-3xl border border-slate-700">
-        <h1 class="text-4xl sm:text-5xl font-extrabold mb-2 animated-title">
+    <div class="main-container">
+        <h1 class="animated-title">
             Jaces Unblocked Games
         </h1>
         
-        <p id="dynamic-subtitle" class="text-xl sm:text-2xl font-semibold mb-10">
+        <p id="dynamic-subtitle">
             </p>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div class="game-grid">
 
             <script>
-                // This function is for dynamic content creation/linking and will be inlined.
-                // The 'placeholder' argument is now always set to false, indicating all games are available.
                 function createGameCard(link, imageSrc, name, placeholder = false) {
-                    const fallbackImg = "https://placehold.co/400x400/374151/ffffff?text=Image+Unavailable"; // Dark mode placeholder
+                    const fallbackImg = "icons/fallback-placeholder.png"; 
                     const gameHtml = `
                     <div class="group">
                         <a 
                             href="${link}" 
                             target="_blank" 
-                            class="link-card block transition-transform duration-300 hover:scale-[1.05] focus:outline-none focus:ring-4 focus:ring-emerald-400 focus:ring-opacity-50 rounded-xl"
+                            class="link-card" 
                             aria-label="Click to play ${name}"
                         >
                             <img 
                                 src="${imageSrc}" 
                                 alt="Icon for ${name} game" 
-                                class="w-full h-auto aspect-square object-cover rounded-xl shadow-xl border-4 border-slate-700 transform transition-shadow duration-300 group-hover:shadow-2xl group-hover:shadow-emerald-500/50"
                                 onerror="this.onerror=null; this.src='${fallbackImg}';"
                             >
                         </a>
-                        <p class="item-name mt-3 font-semibold text-gray-200 transition-colors duration-200 ${placeholder ? 'text-red-400 italic' : ''}">
+                        <p class="item-name ${placeholder ? 'text-red-400 italic' : ''}">
                             ${name} ${placeholder ? ' (Placeholder)' : ''}
                         </p>
                     </div>
@@ -173,13 +214,13 @@
                 }
             </script>
 
-            <script>createGameCard('/games/99 Nights in the Forest.html', 'icons/99 nights.webp', '99 Nights');</script>
-            <script>createGameCard('/games/99% will lose.html', 'icons/99 percent will fail.webp', '99% Will Fail');</script>
+            <script>createGameCard('./games/99 Nights in the Forest.html', 'icons/99 nights.webp', '99 Nights');</script>
+            <script>createGameCard('./games/99% will lose.html', 'icons/99 percent will fail.webp', '99% Will Fail');</script>
             <script>createGameCard('./games/Baldis Basics Camping.html', 'icons/baldis camping.jpg', 'Baldis Basics Camping');</script>
-            <script>createGameCard('/games/Chicken Battle.html', 'icons/battle chicken.webp', 'Chicken Battle');</script>
+            <script>createGameCard('./games/Chicken Battle.html', 'icons/battle chicken.webp', 'Chicken Battle');</script>
             <script>createGameCard('./games/Cookie Clicker.html', 'icons/cookie clicker.png', 'Cookie Clicker');</script>
             <script>createGameCard('./games/Duck Duck Clicker.html', 'icons/duck duck clicker.png', 'Duck Duck Clicker');</script>
-            <script>createGameCard('/games/Elytra Coming.html', 'icons/elytras coming.jpg', 'Elytras Coming');</script>
+            <script>createGameCard('./games/Elytra Coming.html', 'icons/elytras coming.jpg', 'Elytras Coming');</script>
             <script>createGameCard('./games/Five Nights At Freddys Free Roam.html', 'icons/fnaf3d.png', 'FNAF 3D');</script>
             <script>createGameCard('./games/Geometry Dash Wave Challenge.html', 'icons/gd wave.png', 'Geometry Dash Wave');</script>
             <script>createGameCard('./games/Granny.html', 'icons/granny.png', 'Granny');</script>
@@ -187,25 +228,25 @@
             <script>createGameCard('./games/Granny Multiplayer.html', 'icons/granny multiplayer.png', 'Granny Multiplayer');</script>
             <script>createGameCard('./games/Gunspin.html', 'icons/gunspin.webp', 'Gunspin');</script>
             <script>createGameCard('./games/Kart Bros.io.html', 'icons/kart bros.jpg', 'Kart Bros.io');</script>
-            <script>createGameCard('/games/Minecraft v1.8.8.html', 'icons/1 8 8 icon.jpg', 'Minecraft 1.8.8');</script>
-            <script>createGameCard('/games/OvO.html', 'icons/ovo.png', 'OVO');</script>
+            <script>createGameCard('./games/Minecraft v1.8.8.html', 'icons/1 8 8 icon.jpg', 'Minecraft 1.8.8');</script>
+            <script>createGameCard('./games/OvO.html', 'icons/ovo.png', 'OVO');</script>
             <script>createGameCard('./games/Paper.io 2.html', 'icons/paper io 2.png', 'Paper.io 2');</script>
-            <script>createGameCard('/games/Slither v2.html', 'icons/slither io.webp', 'Slither.io');</script>
+            <script>createGameCard('./games/Slither v2.html', 'icons/slither io.webp', 'Slither.io');</script>
             <script>createGameCard('./games/Snow Rider 3d.html', 'icons/snow rider 3d.png', 'Snow Rider 3D');</script>
-            <script>createGameCard('/games/Snowboard Obby.html', 'icons/snowboard obby.png', 'Snowboard Obby');</script>
+            <script>createGameCard('./games/Snowboard Obby.html', 'icons/snowboard obby.png', 'Snowboard Obby');</script>
             <script>createGameCard('./games/Soccer But You Are A Car.html', 'icons/soccer battle.webp', 'Soccer But You Are A Car');</script>
-            <script>createGameCard('/games/Steal A Brainrot.html', 'icons/steal a brainrot.webp', 'Steal A Brainrot');</script>
+            <script>createGameCard('./games/Steal A Brainrot.html', 'icons/steal a brainrot.webp', 'Steal A Brainrot');</script>
             <script>createGameCard('./games/Survival Race.html', 'icons/survival race.webp', 'Survival Race');</script>
             <script>createGameCard('./games/They Are Coming.html', 'icons/they are coming.webp', 'They Are Coming');</script>
             <script>createGameCard('./games/Ultrakill.html', 'icons/ultrakill.png', 'Ultrakill');</script>
 
         </div>
         
-        <p class="mt-8 text-sm text-gray-400">
+        <p class="footer-note">
             Note: All 25 games are currently available! Enjoy playing!
         </p>
         
-        <p class="mt-2 text-sm glowing-red">
+        <p class="glowing-red">
             At the moment, some games on chrome do no work do to Unity WebGL not working in the browser.
         </p>
     </div>
@@ -217,26 +258,26 @@
             "Your source for unblocked games and endless fun.",
             "25 games and counting! Find your next favorite.",
             "Play anywhere, anytime. All games are unblocked.",
-            "Psst... you should probably click on Cookie Clicker. Just saying.", // Funny message 1
-            "Your internet history is safe with us... probably.", // NEW FUNNY 1
-            "Warning: May cause extreme fun. Proceed with caution!", // Funny message 2
-            "Boredom is a lie. Play these instead of doing your homework.", // NEW FUNNY 2
-            "Don't worry, these games are school-approved... by us!", // Funny message 3
-            "My therapist told me to embrace my inner child. So I played Ultrakill.", // NEW FUNNY 3
-            "Check out our full list, from FNAF to Minecraft!", // More info 1
-            "Proof that procrastination can be productive. Sort of.", // NEW FUNNY 4
-            "New games are added regularly, so check back soon!", // More info 2
-            "Shhh! Don't tell your IT admin we're here.", // NEW FUNNY 5
-            "Did you know Paper.io 2 is a classic? Give it a try!", // More info 3
-            "We've optimized this site for maximum fun and minimal attention span.", // NEW FUNNY 6
+            "Psst... you should probably click on Cookie Clicker. Just saying.", 
+            "Your internet history is safe with us... probably.", 
+            "Warning: May cause extreme fun. Proceed with caution!", 
+            "Boredom is a lie. Play these instead of doing your homework.", 
+            "Don't worry, these games are school-approved... by us!", 
+            "My therapist told me to embrace my inner child. So I played Ultrakill.", 
+            "Check out our full list, from FNAF to Minecraft!", 
+            "Proof that procrastination can be productive. Sort of.", 
+            "New games are added regularly, so check back soon!", 
+            "Shhh! Don't tell your IT admin we're here.", 
+            "Did you know Paper.io 2 is a classic? Give it a try!", 
+            "We've optimized this site for maximum fun and minimal attention span.", 
             "Escape the boredom with games like Granny and Baldis Basics!",
-            "Remember to blink. And maybe stretch.", // NEW FUNNY 7
+            "Remember to blink. And maybe stretch.", 
             "Need a quick break? Snow Rider 3D is waiting.",
-            "If you get caught, blame the guy who coded the flashing title.", // NEW FUNNY 8
+            "If you get caught, blame the guy who coded the flashing title.", 
             "Challenge your reflexes with Geometry Dash Wave.",
-            "Warning: May cause intense focus on non-school-related activities.", // NEW FUNNY 9
+            "Warning: May cause intense focus on non-school-related activities.", 
             "We've got the classics and the new hits—all unblocked.",
-            "Why study when you can click a cookie 10,000 times?", // NEW FUNNY 10
+            "Why study when you can click a cookie 10,000 times?", 
             "Unleash your inner gamer. Explore the collection!",
             "Find fun in every click. Start playing now!",
             "From simple clickers to intense survival—we have it all.",
@@ -254,40 +295,34 @@
             "Fresh games and classic thrills are waiting for you.",
             "We make sure the fun is never blocked. Enjoy!",
         ];
-        let currentIndex = -1; // Use -1 to ensure the first pick is always valid
-        const intervalTime = 10000; // 10 seconds
-        const fadeDuration = 1000;  // 1 second for fade
+        let currentIndex = -1; 
+        const intervalTime = 10000; 
+        const fadeDuration = 1000; 
 
         function getNextRandomIndex(current) {
             let newIndex;
             do {
-                // Generate a random number between 0 and phrases.length - 1
                 newIndex = Math.floor(Math.random() * phrases.length);
-            } while (newIndex === current); // Repeat if the new index is the same as the current one
+            } while (newIndex === current); 
             return newIndex;
         }
 
         function updateSubtitle() {
-            // 1. Start fade-out
             subtitleElement.classList.add('fade-out');
 
             setTimeout(() => {
-                // 2. Change content after fade-out completes
                 currentIndex = getNextRandomIndex(currentIndex);
                 const text = phrases[currentIndex];
                 
                 subtitleElement.textContent = text;
                 
-                // 3. Start fade-in
                 subtitleElement.classList.remove('fade-out');
             }, fadeDuration); 
         }
 
-        // Set initial subtitle immediately (first call sets currentIndex)
         currentIndex = getNextRandomIndex(currentIndex);
         subtitleElement.textContent = phrases[currentIndex];
 
-        // Start the continuous update loop
         setInterval(updateSubtitle, intervalTime);
     </script>
 
