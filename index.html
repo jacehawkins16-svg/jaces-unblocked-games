@@ -8,11 +8,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Rubik:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* === CUSTOM FONT DEFINITION === */
+        /* You must place 'SuperJoyful-lxwPq.ttf' in the same directory as this index.html file */
+        @font-face {
+            font-family: 'SuperJoyful';
+            src: url('SuperJoyful-lxwPq.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         /* Custom font and Darker Blue Background */
         body {
-            font-family: 'Inter', sans-serif;
+            /* Apply SuperJoyful to the entire body */
+            font-family: 'SuperJoyful', 'Inter', sans-serif;
             background-color: #0f172a; /* Slate-900: Very dark blue */
         }
+        
+        /* The main title and sub-elements will now inherit this font */
         
         /* === Custom Scrollbar Styling === */
         /* Targets the entire scrollbar */
@@ -47,6 +59,8 @@
         }
         /* Custom styling for hover effect on game name */
         .item-name {
+            /* === MODIFIED: Set to 1.4rem (40% larger than 1rem) for single-line fit === */
+            font-size: 1.4rem; 
             transition: color 0.2s ease;
         }
         .link-card:hover + .item-name {
@@ -121,7 +135,7 @@
     </div>
 
     <div class="main-container w-full max-w-6xl mx-auto text-center p-6 sm:p-10 rounded-3xl border border-slate-700">
-        <h1 class="text-4xl sm:text-5xl font-extrabold mb-2 animated-title" style="font-family: 'Rubik', sans-serif;">
+        <h1 class="text-4xl sm:text-5xl font-extrabold mb-2 animated-title">
             Jaces Unblocked Games
         </h1>
         
@@ -150,7 +164,7 @@
                                 onerror="this.onerror=null; this.src='${fallbackImg}';"
                             >
                         </a>
-                        <p class="item-name mt-3 text-base font-semibold text-gray-200 transition-colors duration-200 ${placeholder ? 'text-red-400 italic' : ''}">
+                        <p class="item-name mt-3 font-semibold text-gray-200 transition-colors duration-200 ${placeholder ? 'text-red-400 italic' : ''}">
                             ${name} ${placeholder ? ' (Placeholder)' : ''}
                         </p>
                     </div>
