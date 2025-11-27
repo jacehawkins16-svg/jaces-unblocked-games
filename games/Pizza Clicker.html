@@ -1,0 +1,143 @@
+<html><head>
+    <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+ <!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+ <meta name="apple-mobile-web-app-capable" content="yes">
+ <meta name="apple-mobile-web-app-status-bar-style" content="black">
+ <meta name="HandheldFriendly" content="true">
+ 
+ <!-- Chrome for Android web app tags -->
+ <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- All margins and padding must be zero for the canvas to fill the screen. -->
+ <style type="text/css">
+  * {
+   padding: 0;
+   margin: 0;
+  }
+  html, body {
+   background: #000;
+   color: #fff;
+   overflow: hidden;
+   touch-action: none;
+   -ms-touch-action: none;
+  }
+  canvas {
+   touch-action-delay: none;
+   touch-action: none;
+   -ms-touch-action: none;
+  }
+    </style>
+ 
+
+<script src="https://s0.2mdn.net/instream/video/client.js" async="" type="text/javascript"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" id="analytics" async="" src="https://cdn.jsdelivr.net/gh/st39/sdk@main/ga.js"></script><script type="text/javascript" async="" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script><script id="gamemonetize-sdk" src="https://cdn.jsdelivr.net/gh/st39/sdk@main/sdk.js"></script><script src="offlineClient.js"></script><meta http-equiv="origin-trial" content="A9AxgGSwmnfgzzkyJHILUr3H8nJ/3D+57oAsL4DBt4USlng4jZ0weq+fZtHC/Qwwn6gd4QSa5DzT3OBif+kXVA0AAAB4eyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><style type="text/css">.promo-container{display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;position:absolute;width:100%;height:100%;top:0;left:0}.promo-display-container{flex-grow:1;position:relative}.promo-controls-container{padding:4px 0;text-align:right;visibility:hidden}.promo-display-container>div{box-sizing:border-box;width:0;height:0;min-height:100%;min-width:100%;max-width:100%;max-height:100%;overflow:hidden;position:absolute}#promo-message{box-sizing:border-box;padding:4px 16px;margin:auto;color:#fff;color:rgba(255,255,255,.8);font-family:Helvetica,Arial,sans-serif;font-size:14px;cursor:pointer;min-width:150px;float:left;text-align:left;margin-bottom:8px;font-weight:400;display:none}#promo-button{box-sizing:border-box;padding:4px 16px;margin:auto;border:1px solid rgba(255,255,255,.5);color:#fff;color:rgba(255,255,255,.8);font-family:Helvetica,Arial,sans-serif;font-size:18px;cursor:pointer;min-width:150px;margin-bottom:8px;background:#000}#promo-button:hover{background:linear-gradient(#a711b0,#821088)}#promo-button:active{background:linear-gradient(#a711b0,#821088)}#promo-button:disabled,#promo-button[disabled]{background:#000}.banner{z-index:1020;height:100%;display:flex!important;align-items:center;justify-content:center} </style></head> 
+ 
+<body style="cursor: auto;"> 
+ <div id="fb-root"></div>
+ 
+ <script async="" src="//www.google-analytics.com/analytics.js"></script><script>
+ // Issue a warning if trying to preview an exported project on disk.
+ (function(){
+  // Check for running exported on file protocol
+  if (window.location.protocol.substr(0, 4) ==="file")
+  {
+   alert("Exported games won't work until you upload them. (When running on the file:/// protocol, browsers block many features from working for security reasons.)");
+  }
+ })();
+ </script>
+ 
+ <!-- The canvas must be inside a div called c2canvasdiv -->
+ <div id="c2canvasdiv" style="width: 1392px; height: 783px; margin-left: 0px; margin-top: 64px;">
+ 
+  <!-- The canvas the project will render to.  If you change its ID, don't forget to change the
+  ID the runtime looks for in the jQuery events above (ready() and cr_sizeCanvas()). -->
+  <canvas id="c2canvas" width="1392" height="783" style="width: 1392px; height: 783px;">
+   <!-- This text is displayed if the visitor's browser does not support HTML5.
+   You can change it, but it is a good idea to link to a description of a browser
+   and provide some links to download some popular HTML5-compatible browsers. -->
+   <h1>Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="http://www.whatbrowser.org">What is a browser?</a>
+   <br><br><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br>
+   <a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br>
+   <a href="http://www.google.com/chrome/">Google Chrome</a><br>
+   <a href="http://www.apple.com/safari/download/">Apple Safari</a></h1>
+  </canvas>
+  
+ <canvas width="1392" height="783" style="position: absolute; top: 64px; left: 0px; width: 1392px; height: 783px; visibility: visible;"></canvas></div>
+ 
+ <!-- Pages load faster with scripts at the bottom -->
+ 
+ <!-- Construct 2 exported games require jQuery. -->
+ <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+ <script src="https://cdn.jsdelivr.net/gh/bessiegasbarro/PiCli@6c12ec1db9c92a11552636e8e2f1e03e4186af5c/ga_init.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/bessiegasbarro/PiCli@6c12ec1db9c92a11552636e8e2f1e03e4186af5c/three.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/bessiegasbarro/PiCli@6c12ec1db9c92a11552636e8e2f1e03e4186af5c/OBJLoader.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/bessiegasbarro/PiCli@6c12ec1db9c92a11552636e8e2f1e03e4186af5c/Q3D.collisionSystem.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/bessiegasbarro/PiCli@6c12ec1db9c92a11552636e8e2f1e03e4186af5c/Q3D.migrate.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/bessiegasbarro/PiCli@6c12ec1db9c92a11552636e8e2f1e03e4186af5c/Q3D.commonACE.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/bessiegasbarro/PiCli@6c12ec1db9c92a11552636e8e2f1e03e4186af5c/Q3D.qfxLoader.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/bessiegasbarro/PiCli@6c12ec1db9c92a11552636e8e2f1e03e4186af5c/WebGLDeferredRenderer.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/bessiegasbarro/PiCli@6c12ec1db9c92a11552636e8e2f1e03e4186af5c/ShaderDeferred.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/bessiegasbarro/PiCli@6c12ec1db9c92a11552636e8e2f1e03e4186af5c/CopyShader.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/bessiegasbarro/PiCli@6c12ec1db9c92a11552636e8e2f1e03e4186af5c/FXAAShader.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/bessiegasbarro/PiCli@6c12ec1db9c92a11552636e8e2f1e03e4186af5c/EffectComposer.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/bessiegasbarro/PiCli@6c12ec1db9c92a11552636e8e2f1e03e4186af5c/RenderPass.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/bessiegasbarro/PiCli@6c12ec1db9c92a11552636e8e2f1e03e4186af5c/ShaderPass.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/bessiegasbarro/PiCli@6c12ec1db9c92a11552636e8e2f1e03e4186af5c/MaskPass.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/bessiegasbarro/PiCli@6c12ec1db9c92a11552636e8e2f1e03e4186af5c/Q3D.SkinnedMesh.js"></script>
+
+ 
+    <!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
+    This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
+ <script src="https://cdn.jsdelivr.net/gh/bessiegasbarro/PiCli@6c12ec1db9c92a11552636e8e2f1e03e4186af5c/c2runtimes.js"></script>
+
+    <script>
+  // Start the Construct 2 project running on window load.
+  jQuery(document).ready(function ()
+  {   
+   // Create new runtime using the c2canvas
+   cr_createRuntime("c2canvas");
+  });
+  
+  // Pause and resume on page becoming visible/invisible
+  function onVisibilityChanged() {
+   if (document.hidden || document.mozHidden || document.webkitHidden || document.msHidden)
+    cr_setSuspended(true);
+   else
+    cr_setSuspended(false);
+  };
+  
+  document.addEventListener("visibilitychange", onVisibilityChanged, false);
+  document.addEventListener("mozvisibilitychange", onVisibilityChanged, false);
+  document.addEventListener("webkitvisibilitychange", onVisibilityChanged, false);
+  document.addEventListener("msvisibilitychange", onVisibilityChanged, false);
+  
+  function OnRegisterSWError(e)
+  {
+   console.warn("Failed to register service worker: ", e);
+  };
+  
+  // Runtime calls this global method when ready to start caching (i.e. after startup).
+  // This registers the service worker which caches resources for offline support.
+  window.C2_RegisterSW = function C2_RegisterSW()
+  {
+   if (!navigator.serviceWorker)
+    return;  // no SW support, ignore call
+   
+   try {
+    navigator.serviceWorker.register("sw.js", { scope: "./" })
+    .then(function (reg)
+    {
+     console.log("Registered service worker on " + reg.scope);
+    })
+    .catch(OnRegisterSWError);
+   }
+   catch (e)
+   {
+    OnRegisterSWError(e);
+   }
+  };
+    </script>
+ 
+<deepl-input-controller translate="no"></deepl-input-controller><div id="imaContainer" style="position: absolute; z-index: 10000; top: 0px; left: 0px; width: 100%; height: 100%; background-color: rgb(0, 0, 0); visibility: hidden; overflow: hidden;"><video id="imaVideo"></video></div><div id="imaContainer_new" style="position: absolute; z-index: 10000; top: 0px; left: 0px; width: 100%; height: 100%; background-color: rgb(0, 0, 0); visibility: hidden; overflow: hidden;"><video2 id="imaVideo2"></video2></div><div id="sdk__advertisement" style="position: fixed; z-index: 0; top: 0px; left: 0px; width: 100%; height: 100%; transform: translateX(-9999px); background-color: rgba(0, 0, 0, 0.8); opacity: 0; transition: opacity 300ms cubic-bezier(0.55, 0, 0.1, 1);"><div id="sdk__advertisement_slot" style="position: absolute; background-color: rgb(0, 0, 0); top: 0px; left: 0px; width: 1392px; height: 911px;"><div style="position: absolute;"><div style="display: none;"><video title="Advertisement" webkit-playsinline="true" playsinline="true" style="background-color: rgb(0, 0, 0); height: 100%; width: 100%; position: absolute; left: 0px; top: 0px;"></video><div style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px;"></div></div><div style="display: none;"><video title="Advertisement" webkit-playsinline="true" playsinline="true" style="background-color: rgb(0, 0, 0); height: 100%; width: 100%; position: absolute; left: 0px; top: 0px;"></video><div style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px;"></div></div><iframe src="https://imasdk.googleapis.com/js/core/bridge3.733.0_en.html#deid=%22%22&amp;eventfe_experiment_ids=%5B%5D&amp;fid=%22goog_1450412451%22&amp;genotype_experiment_data=%7B%22experimentStateProto%22%3A%22%5B%5B%5B45713128%2Cnull%2Cnull%2C%5B%5D%5D%2C%5Bnull%2C749060184%2Cnull%2C%5Bnull%2C100%5D%5D%2C%5B45722344%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45706017%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45740207%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45668885%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45685340%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45734716%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45735891%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45663239%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45715032%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5B45661356%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45676441%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45675307%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5B45675308%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5Bnull%2C45645574%2Cnull%2C%5B%5D%5D%2C%5B45688859%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45656766%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45710689%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45710688%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5B45685601%2Cnull%2Cnull%2C%5B%5D%5D%2C%5Bnull%2C45685602%2Cnull%2C%5Bnull%2C500%5D%5D%2C%5B775241416%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B781107959%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B781107958%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B792614055%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B781107957%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45729602%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45658982%2Cnull%2Cnull%2C%5B%5D%5D%2C%5B45725657%2Cnull%2Cnull%2C%5B%5D%5D%5D%2C%5B%5B16%2C%5B%5B1%2C%5B%5B31089630%5D%2C%5B31089631%2C%5B%5B45668885%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%2C%5B1000%2C%5B%5B95332046%5D%5D%5D%2C%5Bnull%2C%5B%5B95332047%5D%5D%5D%2C%5B10%2C%5B%5B95333808%5D%2C%5B95333809%2C%5B%5B635466687%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%2C%5B10%2C%5B%5B95338769%2C%5B%5Bnull%2C45645574%2Cnull%2C%5Bnull%2C1%5D%5D%5D%5D%2C%5B95338770%2C%5B%5Bnull%2C45645574%2Cnull%2C%5Bnull%2C2%5D%5D%5D%5D%5D%5D%2C%5B10%2C%5B%5B95345206%5D%2C%5B95345207%2C%5B%5B45661356%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%2C%5Bnull%2C%5B%5B95351425%5D%2C%5B95351426%2C%5B%5B45676441%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%2C%5B10%2C%5B%5B95356068%5D%2C%5B95356069%2C%5B%5B45685601%2Cnull%2Cnull%2C%5B%5D%5D%2C%5Bnull%2C45685602%2Cnull%2C%5B%5D%5D%5D%5D%2C%5B95356070%2C%5B%5B45685601%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5Bnull%2C45685602%2Cnull%2C%5B%5D%5D%5D%5D%2C%5B95356071%2C%5B%5B45685601%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5Bnull%2C45685602%2Cnull%2C%5Bnull%2C100%5D%5D%5D%5D%5D%5D%2C%5B10%2C%5B%5B95372277%5D%2C%5B95372278%2C%5B%5Bnull%2C745150931%2Cnull%2C%5Bnull%2C1%5D%5D%5D%5D%5D%5D%2C%5B1%2C%5B%5B95373378%2C%5B%5B792614055%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%2C%5B95373379%2C%5B%5B781107959%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5B792614055%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5B781107957%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%2C%5B10%2C%5B%5B95375243%5D%2C%5B95375244%5D%5D%5D%2C%5B50%2C%5B%5B95375505%5D%2C%5B95375506%2C%5B%5Bnull%2C749060184%2Cnull%2C%5B%5D%5D%5D%5D%5D%5D%2C%5Bnull%2C%5B%5B95375930%5D%2C%5B95375931%2C%5B%5B45734716%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%2C%5B95376520%2C%5B%5B45734716%2Cnull%2Cnull%2C%5B1%5D%5D%2C%5B45735891%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%2C%5Bnull%2C%5B%5B95378095%5D%2C%5B95378096%2C%5B%5B45740207%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%2C%5B1%2C%5B%5B95378629%5D%2C%5B95378630%2C%5B%5B45729602%2Cnull%2Cnull%2C%5B1%5D%5D%5D%5D%5D%5D%5D%5D%5D%2Cnull%2Cnull%2C%5Bnull%2C1000%2C1%2C1000%5D%5D%22%7D&amp;imalib_experiments=%5B44752657%2C95371573%2C95322027%2C95331589%2C95332046%2C95333808%5D&amp;is_eap_loader=false&amp;managed_js_experiment_id=0&amp;pvsid=8992613712674638&amp;top_accessible_page_url=%22https%3A%2F%2F742856276-atari-embeds.googleusercontent.com%2Fembeds%2F16cb204cf3a9d4d223a0a3fd8b0eec5d%2Finner-frame-minified.html%3Fjsh%3Dm%253B%252F_%252Fscs%252Fabc-static%252F_%252Fjs%252Fk%253Dgapi.lb.en.W5qDlPExdtA.O%252Fd%253D1%252Frs%253DAHpOoo8JInlRP_yLzwScb00AozrrUS6gJg%252Fm%253D__features__%22" allowfullscreen="" allow="autoplay;attribution-reporting" id="goog_1450412451" title="Advertisement" style="border: 0px; opacity: 0; margin: 0px; padding: 0px; position: relative; color-scheme: light;"></iframe><iframe title="Advertisement" style="visibility: hidden; width: 0px; height: 0px; position: absolute; left: 0px; top: 0px;"></iframe></div></div><div id="gmLoadingText" style="position:absolute;bottom:0;left:0;right:0;z-index:999999;"><div style="border-top: 1px solid #000;min-height: 35px;background-color: #000000;position: relative;width: 100%;"><a style="margin-top: 3px;position: absolute;right: 5px;text-decoration: none;" target="_blank" href="https://gamemonetize.com/"><span style="font-size: 13px;font-family:Helvetica,Arial,sans-serif;font-weight: 100;color: #fff;padding-right: 8px;text-decoration: none;position: relative;top: 2px;" id="loading-text-gm">Powered by</span><img style="vertical-align: top;position: relative;width: 131px;" id="gmLogo" alt="GameMonetize.com" src="https://cdn.jsdelivr.net/gh/st39/sdk@main/gamemonetize-logo.png" border="0"></a><h1 style="display:none;text-indent: -9999px;">GameMonetize.com</h1></div></div><div id="gmLoadingText" style="position:absolute;bottom:0;left:0;right:0;z-index:999999;"><div style="border-top: 1px solid #000;min-height: 35px;background-color: #000000;position: relative;width: 100%;"><a style="margin-top: 3px;position: absolute;right: 5px;text-decoration: none;" target="_blank" href="https://gamemonetize.com/"><span style="font-size: 13px;font-family:Helvetica,Arial,sans-serif;font-weight: 100;color: #fff;padding-right: 8px;text-decoration: none;position: relative;top: 2px;" id="loading-text-gm">Powered by</span><img style="vertical-align: top;position: relative;width: 131px;" id="gmLogo" alt="GameMonetize.com" src="https://cdn.jsdelivr.net/gh/st39/sdk@main/gamemonetize-logo.png" border="0"></a><h1 style="display:none;text-indent: -9999px;">GameMonetize.com</h1></div></div></div></body></html>

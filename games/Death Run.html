@@ -1,0 +1,217 @@
+<html><head><style type="text/css">#button {
+  display:none;
+}
+.imgb_vis {
+  animation: imgb-animation 7s linear;
+}
+@keyframes imgb-animation {
+  10% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(100px);
+  }
+  90% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}</style></head><body><module>
+<moduleprefs title="Google.com">
+<content type="html"><!--[CDATA[
+
+
+<html-->
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/amazing6ox/okimfine@main/TemplateData/style.css">
+    <style>
+      body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      #gameContainer {
+        width: 100vw;
+        height: 100vh;
+        background: black;
+      }
+    </style>
+    <script src="https://www.id.net/api/user_data/autologin?callback=idnet_autologin&amp;app_id=560525efbbddbd13cb000e0d"></script><script src="https://cdn.jsdelivr.net/gh/amazing6ox/okimfine@main/TemplateData/UnityProgress.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/amazing6ox/okimfine@main/Build/UnityLoader.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "https://cdn.jsdelivr.net/gh/amazing6ox/okimfine@main/Build/death_run_wasm_v1.json", {
+        onProgress: UnityProgress,
+        Module: {
+          onRuntimeInitialized: function () {
+            UnityProgress(gameInstance, "complete");
+          },
+        },
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/amazing6ox/okimfine@main/api.js"></script>
+    <style type="text/css">
+      #button {
+        display: none;
+      }
+      .imgb_vis {
+        animation: imgb-animation 7s linear;
+      }
+      @keyframes imgb-animation {
+        10% {
+          transform: translateX(0);
+        }
+        20% {
+          transform: translateX(100px);
+        }
+        90% {
+          transform: translateX(100px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+    </style>
+  
+  
+    <div id="gameContainer" style="padding: 0px; margin: 0px; border: 0px; position: relative; background: rgb(35, 31, 32);"><canvas id="#canvas" width="1920" height="911" style="cursor: default;"></canvas><div class="logo Dark" style="display: none;"></div><div class="progress Dark" style="display: none;"><div class="empty" style="width: 0%;"></div><div class="full" style="width: 100%;"></div></div></div>
+
+        <!-- ---------- ALT ORTADA SABİT REKLAM (738x95) - MERKEZDEN KESME YAKLAŞIMI ---------- -->
+<style>
+  /* Container: alt ortada, sabit, taşan içerik kırpılır */
+  #ad-container {
+    position: fixed;
+    top: 0; /* Changed from bottom: 0 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(738px, calc(100% - 20px)); /* 738px ama mobilde kenarlara 10px boşluk */
+    height: 95px;
+    background: rgba(0,0,0,0.90);
+    display: none;
+    z-index: 99999;
+    border-radius: 0 0 8px 8px; /* Changed to round bottom corners */
+    overflow: hidden; /* İÇERİĞİN TAŞAN KISMI KIRPILSIN */
+    box-shadow: 0 2px 12px rgba(0,0,0,0.45); /* Adjusted shadow direction */
+    box-sizing: border-box;
+  }
+
+  #ad-iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* iframe'in orta kısmı container'ın ortasında olur */
+    /* iframe geniş tutuluyor ki center-crop elde edilsin */
+    width: 1200px; /* yeterince geniş koy; istersen 1000-1400 aralığında ayarla */
+    height: 100%;
+    border: 0;
+    display: block;
+    overflow: hidden;
+    pointer-events: auto;
+    box-sizing: content-box;
+    -ms-overflow-style: none;  /* IE/Edge scrollbar gizle */
+    scrollbar-width: none;     /* Firefox scrollbar gizle */
+  }
+  /* Webkit scrollbar gizleme */
+  #ad-iframe::-webkit-scrollbar { display: none; width: 0; height: 0; }
+
+  /* Kapat butonu */
+  #close-ad {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 5px 9px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: not-allowed;
+    opacity: 0.72;
+    z-index: 100000;
+  }
+  #close-ad.enabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+
+  /* Opsiyonel: sağ kenarda görünen küçük scrollbarları örtmek istersen (ince maske) */
+  #ad-right-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px; /* gerekirse 12-18px arası dene */
+    height: 100%;
+    pointer-events: none; /* mask etkileşimleri engellesin */
+    background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.9));
+    z-index: 99999;
+  }
+
+  /* Mobilde fazla genişlik oluşmasın diye küçük ayar */
+  @media (max-width: 440px) {
+    #ad-container { width: calc(100% - 12px); left: 50%; transform: translateX(-50%); border-radius: 6px 6px 0 0; }
+    #ad-iframe { width: 1000px; } /* küçült */
+  }
+</style>
+
+<div id="ad-container" aria-hidden="false" role="dialog" aria-label="Reklam" style="display: block;">
+
+  <iframe id="ad-iframe" src="https://script.google.com/macros/s/AKfycbzA6GNdpfUShkCh6apD0D21YAUf7A5d3Guhq2PayqLbk_5XG_wQhy0bdYzKJWLhzgMVMQ/exec" width="1200" height="95" scrolling="no" frameborder="0" sandbox="allow-scripts allow-popups allow-same-origin">
+  </iframe>
+
+
+
+  <!-- opsiyonel sağ maske: eğer hala küçük bir scrollbar kenarda gözüküyorsa bu örtü gizler -->
+  <div id="ad-right-mask"></div>
+</div>
+
+<script>
+  // 2 saniye sonra reklam göster, sonra 5s geri sayımla X etkinleşecek.
+  (function(){
+    const showDelay = 2000; // ms
+    const countdownStart = 5; // saniye
+    const adContainer = document.getElementById('ad-container');
+    const closeBtn = document.getElementById('close-ad');
+
+    setTimeout(() => {
+      // Göster
+      adContainer.style.display = 'block';
+      adContainer.setAttribute('aria-hidden','false');
+
+      // Geri sayım başlat
+      let timeLeft = countdownStart;
+      closeBtn.textContent = `Kapat (${timeLeft})`;
+      const t = setInterval(() => {
+        timeLeft--;
+        if (timeLeft > 0) {
+          closeBtn.textContent = `Kapat (${timeLeft})`;
+        } else {
+          clearInterval(t);
+          closeBtn.disabled = false;
+          closeBtn.classList.add('enabled');
+          closeBtn.textContent = 'Kapat (X)';
+        }
+      }, 1000);
+
+      // Kapatma
+      closeBtn.addEventListener('click', () => {
+        if (closeBtn.disabled) return;
+        adContainer.remove();
+      });
+
+      // Fareyle sürüklenip taşınma vb. istenmiyorsa eklemeyin.
+    }, showDelay);
+  })();
+</script>
+
+  
+
+
+
+
+
+
+
+
+
+]]&gt;</content>
+</moduleprefs></module><div id="button" class="imgb imgb_vis" style="position: fixed; top: 10%; left: -100px; z-index: 10; display: none;"><a target="_blank" href="https://sites.google.com/view/classroom6x/" title="More Unblocked Games 6x"><img src="https://lh4.googleusercontent.com/lUEWrXMVEr4AdjKISyJahDRJ61bwfvHdpeYm86Djn5U8oCm9dI60NGXSBqad9HUvzTXgqlkosA_hWV-VuXPjzrkGvh3_kNSgYk8ySWzXnDpbBCBiooyBbU8oBy3YBZMDkW8RcRVmDuC0raoeqZBm8kBlqs6c5mdfkJeN2aE68lXS_lcOZ5_F7lIuM6qLVg" width="100" height="30" style="cursor:pointer;" alt="More of best Classroom 6x Unblocked Games"></a></div><deepl-input-controller translate="no"></deepl-input-controller><script src="blob:https://1131216821-atari-embeds.googleusercontent.com/5ced3696-030b-4a58-9150-28fcf6483bbd"></script></body></html>
