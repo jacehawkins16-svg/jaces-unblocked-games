@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaces Games - 25 Games</title>
+    <title>Jaces Games - 40 Games</title>
     <link rel="icon" type="image/png" href="icon.png"> 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Rubik:wght=700&display=swap" rel="stylesheet">
     <style>
@@ -278,14 +278,12 @@
             <div class="close-container">
                 <span class="close-button" onclick="closeModal()">X</span>
             </div>
-            <h2>🔥 Update Log - v1.0.0</h2>
+            <h2>🔥 Update Log - v1.1.0</h2>
             <ul>
-                <li>✅ **Full Launch!** All 25 initial games are now available to play.</li>
-                <li>🎨 **New Theme:** Switched to a slick dark-mode, neon-accented design.</li>
-                <li>🔊 **Background Music:** Added a loopable soundtrack (will attempt to play on interaction).</li>
-                <li>✨ **Animated Title:** The "Jaces Unblocked Games" title now cycles colors.</li>
-                <li>🔄 **Dynamic Subtitle:** The subtitle text changes every 10 seconds.</li>
-                <li>🐞 **Bug Fix:** Improved handling for Unity WebGL games on certain browsers.</li>
+                <li>🚀 **Massive Game Update!** Added 15 brand new unblocked games, bringing the total count to 40!</li>
+                <li>🖼️ **Icon Consistency:** Fixed icon file extensions for 6 games to ensure all icons display correctly.</li>
+                <li>🔄 **Dynamic Subtitle Update:** Added many new subtitle phrases to keep the page fresh.</li>
+                <li>✨ **Minor Tweaks:** General code cleanup and improved page load stability.</li>
             </ul>
             <p style="font-size: 0.9rem; color: #9ca3af;">
                 *This pop-up will not appear again unless you clear your browser's local storage.*
@@ -298,7 +296,7 @@
     </audio>
 
     <div class="version-tag">
-        v1.0.0
+        v1.1.0
     </div>
 
     <div class="main-container">
@@ -343,7 +341,6 @@
                                     </style>
                                 </head>
                                 <body>
-                                    <!-- Load the actual game link into the iframe -->
                                     <iframe id="game-frame" src="${link}" allowfullscreen></iframe>
                                 </body>
                                 </html>
@@ -421,10 +418,25 @@
             <script>createGameCard('./games/They Are Coming.html', 'icons/they are coming.webp', 'They Are Coming');</script>
             <script>createGameCard('./games/Ultrakill.html', 'icons/ultrakill.png', 'Ultrakill');</script>
 
-        </div>
+            <script>createGameCard('./games/Death Run.html', 'icons/death run.jpg', 'Death Run');</script>
+            <script>createGameCard('./games/Granny 3.html', 'icons/granny 3.png', 'Granny 3');</script>
+            <script>createGameCard('./games/Hanger.html', 'icons/hanger.jpeg', 'Hanger');</script>
+            <script>createGameCard('./games/Lemon Clicker.html', 'icons/lemon clicker.png', 'Lemon Clicker');</script>
+            <script>createGameCard('./games/Noob vs Pro.html', 'icons/noob vs pro.png', 'Noob vs Pro');</script>
+            <script>createGameCard('./games/Paint Map Simulator.html', 'icons/paint map simulator.avif', 'Paint Map Simulator');</script>
+            <script>createGameCard('./games/3D Geometry Dash.html', 'icons/3d geometry dash.jpg', '3D Geometry Dash');</script>
+            <script>createGameCard('./games/Aquapark Idle.html', 'icons/aquapark idle.png', 'Aquapark Idle');</script>
+            <script>createGameCard('./games/Bank Breakout 2.html', 'icons/bank breakout 2.webp', 'Bank Breakout 2');</script>
+            <script>createGameCard('./games/BitLife.html', 'icons/bitlife.png', 'BitLife');</script>
+            <script>createGameCard('./games/Racing Jump.html', 'icons/racing jump.png', 'Racing Jump');</script>
+            <script>createGameCard('./games/Robby Blocks.html', 'icons/robby blocks.webp', 'Robby Blocks');</script>
+            <script>createGameCard('./games/Snowball.io.html', 'icons/snowball.io.png', 'Snowball.io');</script>
+            <script>createGameCard('./games/Spacebar Clicker.html', 'icons/spacebar clicker.png', 'Spacebar Clicker');</script>
+            <script>createGameCard('./games/Pizza Clicker.html', 'icons/pizza clicker.png', 'Pizza Clicker');</script>
+            </div>
         
         <p class="footer-note">
-            Note: All 25 games are currently available! Enjoy playing!
+            Note: All **40** games are currently available! Enjoy playing!
         </p>
         
         <p class="glowing-red">
@@ -441,7 +453,8 @@
         // --- NEW: UPDATE LOG LOGIC ---
         const modal = document.getElementById('updateLogModal');
         const modalContent = document.getElementById('modalContent');
-        const storageKey = 'updateLogShown';
+        // CRITICAL CHANGE: Changed storage key to be version-specific (v1.1.0)
+        const storageKey = 'updateLogShown_v1.1.0'; 
         const fadeDuration = 500; // 0.5 seconds, matching the CSS transition
 
         function closeModal() {
@@ -474,9 +487,9 @@
         // --- Dynamic Subtitle Logic (Existing) ---
         const subtitleElement = document.getElementById('dynamic-subtitle');
         const phrases = [
-            "Now featuring all 25 available games! Click on an image to play.",
+            "Now featuring all 40 available games! Click on an image to play.",
             "Your source for unblocked games and endless fun.",
-            "25 games and counting! Find your next favorite.",
+            "40 games and counting! Find your next favorite.",
             "Play anywhere, anytime. All games are unblocked.",
             "Psst... you should probably click on Cookie Clicker. Just saying.", 
             "Your internet history is safe with us... probably.", 
@@ -501,7 +514,7 @@
             "Unleash your inner gamer. Explore the collection!",
             "Find fun in every click. Start playing now!",
             "From simple clickers to intense survival—we have it all.",
-            "Explore 25 different worlds right here.",
+            "Explore 40 different worlds right here.",
             "No downloads, just instant gaming fun!",
             "Having a bad day? A little Ultrakill might help.",
             "Don't forget to check out Chicken Battle!",
