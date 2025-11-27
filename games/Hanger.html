@@ -3,57 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attempting to Close Tab</title>
+    <title>Full Screen IFrame Example</title>
+    <!-- Load Tailwind CSS for simple styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f3f4f6;
+        /* CRITICAL: Ensure HTML and Body use 100% of the viewport and remove default margins/padding */
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent body scrollbars */
+        }
+        
+        /* The container now takes up the entire viewport */
+        .iframe-container {
+            height: 100%;
+            width: 100%;
+            /* Removed previous styling (border, shadow, rounded corners) for true full-screen look */
+            border: none; 
+            box-shadow: none;
+            overflow: hidden; 
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none; /* Remove default iframe border */
         }
     </style>
 </head>
-<body class="p-4">
+<!-- The body class is simplified to just manage background and ensures it fills the available space -->
+<body class="bg-white h-full w-full">
 
-    <div id="content" class="bg-white p-8 rounded-xl shadow-2xl max-w-sm text-center">
-        <h1 class="text-2xl font-bold text-red-600 mb-4">Auto-Closing Attempt in Progress...</h1>
-        <p class="text-gray-700 mb-6">
-            The script is attempting to close this tab right now, on load.
-        </p>
-        <p class="text-sm text-gray-500 italic">
-            <strong>Note:</strong> This html file has been deleted do too it not working/functioning correctly.
-        </p>
+    <div class="iframe-container">
+        <!-- 
+            The <iframe> is set to fill its parent container, which now covers the whole screen.
+        -->
+        <iframe 
+            src="/games/Error Message.html" 
+            title="Full Screen Embedded Content"
+            referrerpolicy="no-referrer"
+            allowfullscreen>
+        </iframe>
     </div>
-
-    <script>
-        // Function to attempt closing the window
-        function attemptAutoClose() {
-            // Attempt closing the window immediately on load
-            window.close();
-            
-            // If the window is still open after a short delay (meaning the close failed), 
-            // display a message. This is a common pattern for handling the security block.
-            setTimeout(() => {
-                const contentDiv = document.getElementById('content');
-                if (contentDiv) {
-                    contentDiv.innerHTML = `
-                        <h1 class="text-2xl font-bold text-yellow-600 mb-4">Closure Blocked</h1>
-                        <p class="text-gray-700 mb-6">The browser security policy prevented the tab from closing immediately. This is normal behavior for tabs not opened via JavaScript.</p>
-                        <p class="text-sm text-gray-500 italic">
-                            <a href="javascript:location.reload()" class="text-blue-500 hover:underline">Click here to reload and attempt again.</a>
-                        </p>
-                    `;
-                }
-            }, 500); // Check 500ms after load
-        }
-
-        // Execute the function immediately when the page finishes loading
-        window.onload = attemptAutoClose;
-    </script>
 
 </body>
 </html>
