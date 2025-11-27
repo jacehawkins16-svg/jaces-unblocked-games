@@ -1,0 +1,21 @@
+<html><head><link rel="stylesheet" href="https://3-5.preview.editmysite.com/uploads/9/9/0/8/139890129/custom_themes/702936271845513476/files/style.css">
+<script id="gamemonetize-sdk" src="https://sites.google.com/site/gamemonetizesdk/sdk.js"></script><script src="https://3-5.preview.editmysite.com/uploads/9/9/0/8/139890129/custom_themes/702936271845513476/files/UnityProgress.js"></script> 
+<script src="https://3-5.preview.editmysite.com/uploads/9/9/0/8/139890129/custom_themes/702936271845513476/files/frw.js"></script> 
+
+<script type="text/javascript">
+  var gameInstance;
+  window.onload = function () {
+    gameInstance = UnityLoader.instantiate("gameContainer", "https://3-5.preview.editmysite.com/uploads/9/9/0/8/139890129/custom_themes/702936271845513476/files/frw.json", {
+      onProgress: UnityProgress,
+      Module: {
+        onRuntimeInitialized: function() {
+          UnityProgress(gameInstance, "complete");
+        }
+      }
+    });
+  }
+</script> 
+
+</head><body><div class="webgl-content">
+  <div id="gameContainer" style="width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; position: relative; background: rgb(0, 0, 0);"><canvas id="#canvas" width="1392" height="911" style="width: 100%; height: 100%; cursor: default;"></canvas><div class="logo Dark" style="display: none;"></div><div class="progress Dark" style="display: none;"><div class="empty" style="width: 0%;"></div><div class="full" style="width: 100%;"></div></div></div> 
+</div><script src="blob:https://1679653361-atari-embeds.googleusercontent.com/9c32d32f-acfe-4e54-9674-b523d539e321" id="b261b461020395159f7833b24d085e05"></script></body></html>
