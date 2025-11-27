@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Load Error</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #fef2f2; /* Red-50 background for error theme */
+            text-align: center;
+        }
+        .error-box {
+            background-color: #fee2e2; /* Red-100 */
+            border: 2px solid #ef4444; /* Red-500 */
+            color: #991b1b; /* Red-800 */
+            padding: 2rem;
+        }
+        .error-title {
+            color: #dc2626; /* Red-600 */
+        }
+    </style>
+</head>
+<body class="p-4">
+
+    <!-- The content is now statically defined in the body, without JavaScript manipulation -->
+    <div id="content" class="error-box p-8 rounded-xl shadow-2xl max-w-sm mx-auto">
+        <h1 class="text-3xl font-extrabold error-title mb-4">Sorry, This Html File Could Not Load</h1>
+        <p class="text-lg font-medium text-gray-800 mb-6">
+            This is due to the file being deleted due to either bugs, or the file not working. 
+        </p>
+        <p class="text-sm font-semibold">
+            Contact 
+            <a href="mailto:jacehawkins16@gmail.com" class="text-red-700 hover:text-red-900 underline transition duration-150">
+                jacehawkins16@gmail.com
+            </a> 
+            If Needed.
+        </p>
+    </div>
+
+</body>
+</html>
