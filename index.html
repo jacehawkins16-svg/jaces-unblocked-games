@@ -312,13 +312,71 @@
         <div class="game-grid">
 
             <script>
+                /**
+                 * Opens a new window with the URL 'about:blank' and loads the game 
+                 * inside a full-screen iframe to preserve the 'about:blank' address bar content.
+                 * @param {string} link - The actual URL of the game file.
+                 * @param {string} name - The title of the game.
+                 */
+                function openGame(link, name) {
+                    // 1. Open a new, clean window with 'about:blank'
+                    const newWindow = window.open('about:blank', '_blank');
+
+                    if (newWindow) {
+                        try {
+                            // 2. Construct the full HTML content with an iframe
+                            const content = `
+                                <!DOCTYPE html>
+                                <html lang="en">
+                                <head>
+                                    <meta charset="UTF-8">
+                                    <title>${name}</title>
+                                    <style>
+                                        /* Make sure the iframe fills the entire window */
+                                        html, body { margin: 0; padding: 0; overflow: hidden; height: 100%; width: 100%; background: #000; }
+                                        #game-frame { 
+                                            border: none; 
+                                            width: 100vw; 
+                                            height: 100vh; 
+                                            display: block; 
+                                        }
+                                    </style>
+                                </head>
+                                <body>
+                                    <!-- Load the actual game link into the iframe -->
+                                    <iframe id="game-frame" src="${link}" allowfullscreen></iframe>
+                                </body>
+                                </html>
+                            `;
+                            
+                            // 3. Write the content directly into the new window's document
+                            newWindow.document.write(content);
+                            // 4. Close the document write stream (critical for rendering)
+                            newWindow.document.close();
+
+                        } catch (e) {
+                            console.error("Failed to inject iframe content into about:blank, falling back to redirection:", e);
+                            // Fallback to simple redirection if the write process fails
+                            newWindow.location.href = link;
+                        }
+                    } else {
+                        // If the pop-up was blocked
+                        console.error('Pop-up blocked. Opening game link directly.');
+                        window.open(link, '_blank');
+                    }
+                }
+                
+                // Updated: createGameCard uses the openGame function in the onclick handler
                 function createGameCard(link, imageSrc, name, placeholder = false) {
                     const fallbackImg = "icons/fallback-placeholder.png"; 
+                    // Escape single quotes in the name for JavaScript function call
+                    const escapedName = name.replace(/'/g, "\\'"); 
+                    
                     const gameHtml = `
                     <div class="group">
                         <a 
-                            href="${link}" 
-                            target="_blank" 
+                            href="javascript:void(0)" 
+                            onclick="openGame('${link}', '${escapedName}')"
                             class="link-card" 
                             aria-label="Click to play ${name}"
                         >
