@@ -1,0 +1,305 @@
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega Mart Tycoon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to bottom right, #4a148c, #880e4f);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        #game-container {
+            max-width: 800px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            color: #4a148c;
+            margin-top: 0;
+            font-size: 36px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: #880e4f;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        #stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .btn {
+            margin: 8px;
+            padding: 10px 20px;
+            font-size: 14px;
+            background: linear-gradient(to right, #4a148c, #880e4f);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover:not(:disabled) {
+            background: linear-gradient(to right, #880e4f, #4a148c);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .upgrade-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        #special-actions {
+            margin-top: 20px;
+        }
+
+        #code-redeemer {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #code-input {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            margin-right: 10px;
+            width: 200px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        #earn-money {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <h1>Mega Mart Tycoon</h1>
+        <div id="stats-container">
+            <p>Money: $<span id="money">0.00</span></p>
+            <p>Level: <span id="mart-level-value">1</span></p>
+            <p>Customers: <span id="customers">0</span>/day</p>
+        </div>
+        <button id="earn-money" class="btn">Earn $1.00</button>
+        <div id="upgrades-container">
+            <h2>Upgrades</h2>
+            <div class="upgrade-grid">
+                <button class="btn upgrade-btn" data-cost="100" data-type="mascot">Mascot ($100)</button>
+                <button class="btn upgrade-btn" data-cost="500" data-type="cashier">Cashiers ($500)</button>
+                <button class="btn upgrade-btn" data-cost="2000" data-type="manager">Managers ($2K)</button>
+                <button class="btn upgrade-btn" data-cost="5000" data-type="security">Security ($5K)</button>
+                <button class="btn upgrade-btn" data-cost="10000" data-type="marketing">Marketing ($10K)</button>
+                <button class="btn upgrade-btn" data-cost="25000" data-type="expand">Expand ($25K)</button>
+                <button class="btn upgrade-btn" data-cost="50000" data-type="checkout">Checkout ($50K)</button>
+                <button class="btn upgrade-btn" data-cost="100000" data-type="loyalty">Loyalty ($100K)</button>
+                <button class="btn upgrade-btn" data-cost="500000" data-type="newloc">New Loc ($500K)</button>
+                <button class="btn upgrade-btn" data-cost="1000000" data-type="online">Online Store ($1M)</button>
+                <button class="btn upgrade-btn" data-cost="5000000" data-type="ai">AI Assistant ($5M)</button>
+                <button class="btn upgrade-btn" data-cost="10000000" data-type="franchise">Franchise ($10M)</button>
+            </div>
+        </div>
+        <div id="special-actions">
+            <h2>Special Actions</h2>
+            <button id="run-sale" class="btn" data-cost="10000">Run Sale ($10K)</button>
+            <button id="train-staff" class="btn" data-cost="50000">Train Staff ($50K)</button>
+            <button id="renovate" class="btn" data-cost="100000">Renovate Store ($100K)</button>
+        </div>
+        <div id="code-redeemer">
+            <input type="text" id="code-input" placeholder="Enter code">
+            <button id="redeem-code" class="btn">Redeem</button>
+        </div>
+    </div>
+
+    <script>
+        const moneyElement = document.getElementById('money');
+        const earnMoneyButton = document.getElementById('earn-money');
+        const upgradeButtons = document.querySelectorAll('.upgrade-btn');
+        const martLevelElement = document.getElementById('mart-level-value');
+        const codeInput = document.getElementById('code-input');
+        const redeemCodeButton = document.getElementById('redeem-code');
+        const customersElement = document.getElementById('customers');
+
+        const validCodes = ['LITTLETIMMY', 'TABLE', 'WOWGAMES', 'CHAIR', 'WUSSUP', 'MEME', 'ABX'];
+        const redeemedCodes = [];
+
+        let money = 0;
+        let martLevel = 1;
+        let moneyPerClick = 1;
+        let customers = 0;
+        let upgrades = {
+            mascot: 0,
+            cashier: 0,
+            manager: 0,
+            security: 0,
+            marketing: 0,
+            expand: 0,
+            checkout: 0,
+            loyalty: 0,
+            newloc: 0,
+            online: 0,
+            ai: 0,
+            franchise: 0
+        };
+
+        function earnMoney() {
+            const moneyEarned = calculateMoneyPerClick();
+            money += moneyEarned;
+            customers += Math.floor(moneyEarned / 10);
+            updateDisplay();
+        }
+
+        function updateEarnMoneyButton(moneyEarned) {
+            earnMoneyButton.textContent = `Earn $${moneyEarned.toFixed(2)}`;
+        }
+
+        function runSale() {
+            if (money >= 10000) {
+                money -= 10000;
+                customers += 1000;
+                updateDisplay();
+                alert("Sale successful! Gained 1000 new customers.");
+            } else {
+                alert("Not enough money to run a sale.");
+            }
+        }
+
+        function trainStaff() {
+            if (money >= 50000) {
+                money -= 50000;
+                moneyPerClick *= 1.2;
+                updateDisplay();
+                alert("Staff trained! Earning efficiency increased by 20%.");
+            } else {
+                alert("Not enough money to train staff.");
+            }
+        }
+
+        function renovateStore() {
+            if (money >= 100000) {
+                money -= 100000;
+                customers *= 1.5;
+                updateDisplay();
+                alert("Store renovated! Customer base increased by 50%.");
+            } else {
+                alert("Not enough money to renovate the store.");
+            }
+        }
+
+        function redeemCode() {
+            const code = codeInput.value.toUpperCase();
+            if (validCodes.includes(code) && !redeemedCodes.includes(code)) {
+                redeemedCodes.push(code);
+                money += 10000;
+                updateDisplay();
+                alert(`Code "${code}" redeemed successfully! You received $10,000.`);
+                codeInput.value = '';
+            } else if (redeemedCodes.includes(code)) {
+                alert(`Code "${code}" has already been redeemed.`);
+            } else {
+                alert('Invalid code.');
+            }
+        }
+
+        function updateDisplay() {
+            moneyElement.textContent = money.toFixed(2);
+            martLevelElement.textContent = martLevel;
+            customersElement.textContent = Math.floor(customers);
+            updateUpgradeButtons();
+            updateEarnMoneyButton(calculateMoneyPerClick());
+        }
+
+        function calculateMoneyPerClick() {
+            return moneyPerClick +
+                (upgrades.mascot * 2) +
+                (upgrades.cashier * 5) +
+                (upgrades.manager * 10) +
+                (upgrades.security * 20) +
+                (upgrades.marketing * 50) +
+                (upgrades.expand * 100) +
+                (upgrades.checkout * 200) +
+                (upgrades.loyalty * 500) +
+                (upgrades.newloc * 1000) +
+                (upgrades.online * 2000) +
+                (upgrades.ai * 5000) +
+                (upgrades.franchise * 10000);
+        }
+
+        function updateUpgradeButtons() {
+            upgradeButtons.forEach(button => {
+                const cost = parseInt(button.dataset.cost);
+                button.disabled = money < cost;
+            });
+        }
+
+        function buyUpgrade(type, cost) {
+            if (money >= cost) {
+                money -= cost;
+                upgrades[type]++;
+                if (type === 'expand' || type === 'newloc') {
+                    martLevel++;
+                }
+                updateDisplay();
+            }
+        }
+
+        earnMoneyButton.addEventListener('click', earnMoney);
+        redeemCodeButton.addEventListener('click', redeemCode);
+
+        document.getElementById('run-sale').addEventListener('click', runSale);
+        document.getElementById('train-staff').addEventListener('click', trainStaff);
+        document.getElementById('renovate').addEventListener('click', renovateStore);
+
+        upgradeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const cost = parseInt(button.dataset.cost);
+                const type = button.dataset.type;
+                buyUpgrade(type, cost);
+            });
+        });
+
+        // Initial update
+        updateDisplay();
+    </script>
+</body>
+</html>
