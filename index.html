@@ -169,12 +169,129 @@
             50% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px rgba(255, 0, 0, 0.8); }
             100% { text-shadow: 0 0 5px rgba(255, 0, 0, 0.5), 0 0 10px rgba(255, 0, 0, 0.4); }
         }
+        
+        /* === UPDATE LOG MODAL STYLES === */
+        .modal-overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            align-items: center; 
+            justify-content: center;
+            background-color: rgba(0,0,0,0.8); 
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            /* Ensure the overlay itself is not visible during the fade-out */
+            transition: background-color 0.5s; 
+        }
+
+        .modal-content {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            margin: 20px auto; 
+            padding: 25px;
+            border: 1px solid #334155;
+            border-radius: 1rem;
+            width: 90%; 
+            max-width: 500px;
+            max-height: 90vh; 
+            overflow-y: auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+            /* Initial animation for showing the modal */
+            animation: fadeIn 0.5s forwards; 
+            /* Set transition properties for smooth animation */
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        /* NEW: Fade out class applied by JavaScript */
+        .modal-content.fade-out {
+            animation: fadeOut 0.5s forwards; 
+        }
+
+        .modal-content h2 {
+            color: #34d399;
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            padding-right: 30px; 
+        }
+        
+        .modal-content ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-content ul li {
+            background: #0f172a;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 0.5rem;
+            border-left: 4px solid #60a5fa;
+            font-size: 1rem;
+        }
+        
+        .close-container {
+            position: absolute; 
+            top: 15px;
+            right: 15px;
+        }
+        
+        .close-button {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 20px;
+            transition: color 0.2s;
+            display: block;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #ff3333;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        /* Keyframes for animation */
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(-20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        
+        @keyframes fadeOut {
+            from {opacity: 1; transform: translateY(0);}
+            to {opacity: 0; transform: translateY(-20px);} /* Slides up slightly as it fades */
+        }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2038218004781592"
      crossorigin="anonymous"></script>
 </head>
 <body class="relative"> 
     
+    <div id="updateLogModal" class="modal-overlay">
+        <div id="modalContent" class="modal-content" style="position: relative;"> 
+            <div class="close-container">
+                <span class="close-button" onclick="closeModal()">X</span>
+            </div>
+            <h2>🔥 Update Log - v1.0.0</h2>
+            <ul>
+                <li>✅ **Full Launch!** All 25 initial games are now available to play.</li>
+                <li>🎨 **New Theme:** Switched to a slick dark-mode, neon-accented design.</li>
+                <li>🔊 **Background Music:** Added a loopable soundtrack (will attempt to play on interaction).</li>
+                <li>✨ **Animated Title:** The "Jaces Unblocked Games" title now cycles colors.</li>
+                <li>🔄 **Dynamic Subtitle:** The subtitle text changes every 10 seconds.</li>
+                <li>🐞 **Bug Fix:** Improved handling for Unity WebGL games on certain browsers.</li>
+            </ul>
+            <p style="font-size: 0.9rem; color: #9ca3af;">
+                *This pop-up will not appear again unless you clear your browser's local storage.*
+            </p>
+        </div>
+    </div>
     <audio id="background-music" loop>
         <source src="music.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -263,6 +380,39 @@
     </div>
 
     <script>
+        // --- NEW: UPDATE LOG LOGIC ---
+        const modal = document.getElementById('updateLogModal');
+        const modalContent = document.getElementById('modalContent');
+        const storageKey = 'updateLogShown';
+        const fadeDuration = 500; // 0.5 seconds, matching the CSS transition
+
+        function closeModal() {
+            // 1. Set flag in localStorage so it doesn't show again
+            localStorage.setItem(storageKey, 'true');
+            
+            // 2. Start the fade-out animation on the content
+            modalContent.classList.add('fade-out');
+            
+            // 3. Hide the entire modal after the animation finishes
+            setTimeout(() => {
+                modal.style.display = 'none';
+                // Clean up the class so it's ready for the next time (if storage is cleared)
+                modalContent.classList.remove('fade-out'); 
+            }, fadeDuration); 
+        }
+
+        // Show the modal if the flag is NOT set in localStorage
+        if (localStorage.getItem(storageKey) !== 'true') {
+            modal.style.display = 'flex'; 
+            
+            // Allow clicking outside the modal to close it (and set the flag)
+            window.onclick = function(event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            }
+        }
+        
         // --- Dynamic Subtitle Logic (Existing) ---
         const subtitleElement = document.getElementById('dynamic-subtitle');
         const phrases = [
@@ -309,7 +459,7 @@
         ];
         let currentIndex = -1; 
         const intervalTime = 10000; 
-        const fadeDuration = 1000; 
+        const fadeDurationSubtitle = 1000; 
 
         function getNextRandomIndex(current) {
             let newIndex;
@@ -329,7 +479,7 @@
                 subtitleElement.textContent = text;
                 
                 subtitleElement.classList.remove('fade-out');
-            }, fadeDuration); 
+            }, fadeDurationSubtitle); 
         }
 
         currentIndex = getNextRandomIndex(currentIndex);
@@ -337,7 +487,7 @@
 
         setInterval(updateSubtitle, intervalTime);
 
-        // --- MUSIC CONTROL LOGIC (Updated) ---
+        // --- MUSIC CONTROL LOGIC (Existing) ---
         const music = document.getElementById('background-music');
         let played = false;
 
@@ -362,7 +512,7 @@
         document.addEventListener('scroll', playOnFirstInteraction);
 
 
-        // --- NEW: PAUSE/PLAY WHEN TAB CHANGES ---
+        // --- PAUSE/PLAY WHEN TAB CHANGES (Existing) ---
         let isPlaying = false; // Tracks if the music was actively playing when the tab lost focus
 
         document.addEventListener('visibilitychange', function() {
