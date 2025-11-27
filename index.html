@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jaces Games - 25 Games</title>
     <link rel="icon" type="image/png" href="icon.png"> 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Rubik:wght=700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Rubik:wght@700&display=swap" rel="stylesheet">
     <style>
         /* === CUSTOM FONT DEFINITION === */
         @font-face {
@@ -169,15 +169,162 @@
             50% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px rgba(255, 0, 0, 0.8); }
             100% { text-shadow: 0 0 5px rgba(255, 0, 0, 0.5), 0 0 10px rgba(255, 0, 0, 0.4); }
         }
+
+        /* === UPDATE LOG MODAL STYLES (MODIFIED) === */
+        #update-log-overlay {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            background-color: rgba(0, 0, 0, 0.7) !important; /* Dark overlay */
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            z-index: 1000 !important;
+        }
+
+        #update-log-modal {
+            background-color: #1e3a8a !important; /* Blue Background */
+            color: #e2e8f0 !important;
+            width: 90% !important;
+            max-width: 550px !important; 
+            max-height: 90vh !important; 
+            border-radius: 1rem !important;
+            overflow: hidden !important; 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8) !important;
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        .update-log-header {
+            background-color: #3b82f6 !important; /* Lighter Blue Top Update menu */
+            padding: 1rem !important;
+            /* NEW: Use Flexbox to align items and center the text */
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important; /* Vertically center the text and button */
+            
+            /* Increase font size for "Update Log" text (1.5rem * 1.5 = 2.25rem) */
+            font-size: 2.25rem !important; 
+            font-weight: 800 !important;
+            position: relative !important;
+        }
+
+        /* NEW: Wrapper for the title to push it to the left while keeping the button on the right */
+        .update-log-header > span {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .update-log-body {
+            padding: 1.5rem !important; 
+            text-align: left !important;
+            overflow-y: auto !important; 
+            flex-grow: 1 !important;
+        }
+        
+        /* Modal Scrollbar Styling (Matching body) */
+        .update-log-body::-webkit-scrollbar { width: 10px; }
+        .update-log-body::-webkit-scrollbar-track { background: #1e3a8a; } /* Modal background */
+        .update-log-body::-webkit-scrollbar-thumb { background-color: #334155; border-radius: 20px; border: 2px solid #1e3a8a; } 
+        .update-log-body::-webkit-scrollbar-thumb:hover { background-color: #475569; }
+
+        .update-log-body h3 {
+            font-size: 1.8rem !important; 
+            font-weight: 700 !important;
+            margin-top: 0.5rem !important;
+            margin-bottom: 1rem !important; 
+            color: #facc15 !important; 
+        }
+
+        .update-log-body ul {
+            list-style: none !important;
+            padding-left: 0 !important;
+            margin-left: 0.5rem !important; 
+        }
+
+        .update-log-body ul li {
+            margin-bottom: 0.75rem !important;
+            font-size: 1.1rem !important; 
+            padding-left: 1.5rem !important; 
+            text-indent: -1.5rem !important; 
+        }
+
+        .update-log-body ul li:before {
+            content: "\26AB" !important; /* White Dot Emoji */
+            color: #ffffff !important;
+            font-weight: bold !important;
+            display: inline-block !important;
+            width: 1em !important;
+            margin-right: 0.25rem !important; 
+            margin-left: 0 !important;
+            text-indent: 0 !important;
+        }
+
+        .close-button {
+            /* Positioning is relative to the flex container now */
+            position: static !important;
+            top: unset !important;
+            right: unset !important;
+            background-color: #ef4444 !important; /* Red background */
+            color: #ffffff !important; /* White X */
+            border: none !important;
+            border-radius: 50% !important; /* Circle shape */
+            /* Increased size (30px * 1.5 = 45px) */
+            width: 45px !important;
+            height: 45px !important;
+            /* Increased font size (1.25rem * 1.5 = 1.875rem) */
+            font-size: 1.875rem !important; 
+            font-weight: bold !important;
+            line-height: 1 !important;
+            cursor: pointer !important;
+            box-shadow: 0 0 0 1px #000000 !important; /* Black outline */
+            transition: background-color 0.2s !important;
+            
+            /* Adjust margin to maintain padding from the right */
+            margin-left: 1rem !important;
+        }
+        
+        .close-button:hover {
+            background-color: #dc2626 !important;
+        }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2038218004781592"
      crossorigin="anonymous"></script>
 </head>
 <body class="relative"> 
+    
+    <audio id="background-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <div class="version-tag">
         v1.0.0
     </div>
 
+    <div id="update-log-overlay" style="display: none;">
+        <div id="update-log-modal">
+            <div class="update-log-header">
+                <span>Update Log</span>
+                <button class="close-button" onclick="closeUpdateLog()">
+                    &times;
+                </button>
+            </div>
+            <div class="update-log-body">
+                <h3>Update 1: Release</h3>
+                <ul>
+                    <li>25 New Games</li>
+                    <li>Added Custom Fonts</li>
+                    <li>Implemented Dynamic Subtitle Feature</li>
+                    <li>Added Background Music (Requires User Interaction to Play)</li>
+                    <li>Mobile-Responsive Game Grid Layout</li>
+                    <li>Added Warning Note About Chrome/Unity WebGL Issues</li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <div class="main-container">
         <h1 class="animated-title">
             Jaces Unblocked Games
@@ -257,6 +404,29 @@
     </div>
 
     <script>
+        // --- UPDATE LOG LOGIC (MODIFIED for Scroll Lock) ---
+        const UPDATE_LOG_KEY = 'jacesGames_updateLog_v1_0_0'; 
+        const updateLogOverlay = document.getElementById('update-log-overlay');
+        const bodyElement = document.body;
+
+        function closeUpdateLog() {
+            updateLogOverlay.style.display = 'none';
+            bodyElement.style.overflow = ''; // Re-enable body scroll
+            localStorage.setItem(UPDATE_LOG_KEY, 'seen');
+        }
+
+        function showUpdateLog() {
+            updateLogOverlay.style.display = 'flex';
+            bodyElement.style.overflow = 'hidden'; // Disable body scroll
+        }
+
+        // Check if the user has seen this version's update log
+        if (localStorage.getItem(UPDATE_LOG_KEY) !== 'seen') {
+            window.addEventListener('load', showUpdateLog);
+        }
+
+
+        // --- Dynamic Subtitle Logic (Existing) ---
         const subtitleElement = document.getElementById('dynamic-subtitle');
         const phrases = [
             "Now featuring all 25 available games! Click on an image to play.",
@@ -329,6 +499,55 @@
         subtitleElement.textContent = phrases[currentIndex];
 
         setInterval(updateSubtitle, intervalTime);
+
+        // --- MUSIC CONTROL LOGIC (Existing) ---
+        const music = document.getElementById('background-music');
+        let played = false;
+
+        // Function to attempt playing on first interaction
+        function playOnFirstInteraction() {
+            if (!played) {
+                // Use .then() to handle Promise for modern browser play() method
+                music.play().then(() => {
+                    played = true;
+                    // Remove listeners once playback is successfully initiated
+                    document.removeEventListener('click', playOnFirstInteraction);
+                    document.removeEventListener('scroll', playOnFirstInteraction);
+                }).catch(error => {
+                    // console.log("Autoplay blocked, waiting for more interaction.", error);
+                    // Keep listeners active if blocked
+                });
+            }
+        }
+
+        // Attach listeners for interaction
+        document.addEventListener('click', playOnFirstInteraction);
+        document.addEventListener('scroll', playOnFirstInteraction);
+
+
+        // --- NEW: PAUSE/PLAY WHEN TAB CHANGES ---
+        let isPlaying = false; // Tracks if the music was actively playing when the tab lost focus
+
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                // If the document is hidden (user switched tabs)
+                if (!music.paused) {
+                    music.pause();
+                    isPlaying = true; // Remember it was playing
+                } else {
+                    isPlaying = false;
+                }
+            } else {
+                // If the document is visible (user switched back)
+                // Only try to play if it was playing when the tab was hidden AND it has been played before
+                if (isPlaying && played) {
+                    music.play().catch(error => {
+                        // console.log("Resuming music failed:", error);
+                    });
+                }
+            }
+        });
+        
     </script>
 
 </body>
