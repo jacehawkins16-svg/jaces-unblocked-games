@@ -230,8 +230,8 @@
             background: #0f172a;
             padding: 10px;
             margin-bottom: 8px;
-            border-radius: 0.5rem;
             border-left: 4px solid #60a5fa;
+            border-radius: 0.5rem;
             font-size: 1rem;
         }
         
@@ -278,11 +278,11 @@
             <div class="close-container">
                 <span class="close-button" onclick="closeModal()">X</span>
             </div>
-            <h2>🔥 Update Log - v1.1.2</h2>
+            <h2>🔥 Update Log - v1.1.3</h2>
             <ul>
-                <li>🚀 **New Games!** Added 10 exciting new games, bringing the total count up to **50**!</li>
-                <li>🔄 **Dynamic Subtitle Update:** Added new subtitle phrases to keep the page fresh.</li>
-                <li>✨ **Minor Tweaks:** General code cleanup and stability improvements.</li>
+                <li>🔊 **Background Music!** Added smooth background music to the page.</li>
+                <li>✨ **Fading Effect:** Music now **fades out** when you leave the tab and **fades in** when you return, instead of instantly stopping.</li>
+                <li>🚀 **New Games!** Added 10 exciting new games, bringing the total count up to **50**! (Inherited from 1.1.2)</li>
             </ul>
             <p style="font-size: 0.9rem; color: #9ca3af;">
                 *This pop-up will not appear again unless you clear your browser's local storage.*
@@ -295,7 +295,7 @@
     </audio>
 
     <div class="version-tag">
-        v1.1.2
+        v1.1.3
     </div>
 
     <div class="main-container">
@@ -458,11 +458,11 @@
     </div>
 
     <script>
-        // --- NEW: UPDATE LOG LOGIC ---
+        // --- UPDATE LOG LOGIC (v1.1.3) ---
         const modal = document.getElementById('updateLogModal');
         const modalContent = document.getElementById('modalContent');
-        // CRITICAL CHANGE: Changed storage key to be version-specific (v1.1.2)
-        const storageKey = 'updateLogShown_v1.1.2'; 
+        // UPDATED: Changed storage key to be version-specific (v1.1.3)
+        const storageKey = 'updateLogShown_v1.1.3'; 
         const fadeDuration = 500; // 0.5 seconds, matching the CSS transition
 
         function closeModal() {
@@ -598,15 +598,66 @@
         document.addEventListener('scroll', playOnFirstInteraction);
 
 
-        // --- PAUSE/PLAY WHEN TAB CHANGES (Existing) ---
+        // --- PAUSE/PLAY WHEN TAB CHANGES (UPDATED FOR FADING) ---
         let isPlaying = false; // Tracks if the music was actively playing when the tab lost focus
+        let fadeInterval = null;
+        const FADE_TIME_MS = 1000; // Total time for fade effect (1 second)
+        
+        /**
+         * Gradually changes the volume of the audio element.
+         * @param {number} targetVolume - The final volume (0.0 to 1.0).
+         * @param {number} durationMs - The total time the fade should take.
+         * @param {function} onComplete - Callback function to run when the fade finishes.
+         */
+        function startFade(targetVolume, durationMs, onComplete) {
+            // Clear any existing interval
+            if (fadeInterval) {
+                clearInterval(fadeInterval);
+                fadeInterval = null;
+            }
+
+            const startVolume = music.volume;
+            // Use 50 steps for a smooth 1000ms fade (20ms interval)
+            const steps = 50; 
+            const volumeChangePerStep = (targetVolume - startVolume) / steps;
+            const intervalTime = durationMs / steps;
+
+            fadeInterval = setInterval(() => {
+                let currentVolume = music.volume;
+                let newVolume = currentVolume + volumeChangePerStep;
+
+                // Clamp the new volume between 0 and 1
+                newVolume = Math.min(1, Math.max(0, newVolume));
+
+                music.volume = newVolume;
+
+                // Check if the fade is complete
+                // Use a small epsilon (e.g., 0.001) for float comparisons
+                if ((volumeChangePerStep > 0 && newVolume >= targetVolume - 0.001) || 
+                    (volumeChangePerStep < 0 && newVolume <= targetVolume + 0.001)) {
+                    
+                    music.volume = targetVolume; // Ensure it hits the exact target volume
+                    clearInterval(fadeInterval);
+                    fadeInterval = null;
+                    if (onComplete) {
+                        onComplete();
+                    }
+                }
+            }, intervalTime);
+        }
 
         document.addEventListener('visibilitychange', function() {
             if (document.hidden) {
                 // If the document is hidden (user switched tabs)
                 if (!music.paused) {
-                    music.pause();
                     isPlaying = true; // Remember it was playing
+                    
+                    // Start Fade Out (volume to 0.0)
+                    startFade(0, FADE_TIME_MS, () => {
+                        music.pause();
+                        // Reset volume to 1.0 so the next fade-in starts correctly
+                        music.volume = 1.0; 
+                    });
                 } else {
                     isPlaying = false;
                 }
@@ -614,7 +665,12 @@
                 // If the document is visible (user switched back)
                 // Only try to play if it was playing when the tab was hidden AND it has been played before
                 if (isPlaying && played) {
-                    music.play().catch(error => {
+                    // 1. Set volume to 0.0 and play (it's silent)
+                    music.volume = 0.0;
+                    music.play().then(() => {
+                        // 2. Then, Start Fade In (volume to 1.0)
+                        startFade(1.0, FADE_TIME_MS);
+                    }).catch(error => {
                         // console.log("Resuming music failed:", error);
                     });
                 }
