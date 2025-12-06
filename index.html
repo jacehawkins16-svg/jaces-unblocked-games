@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jaces Games - 134 Games</title>
-    <link rel="icon" type="image/png" href="icon.png"> 
+    <link rel="icon" type="image/png" href="https://i.imgur.com/G5T7W4Q.png"> 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Rubik:wght@700&display=swap" rel="stylesheet">
     <style>
         /* === CUSTOM FONT DEFINITION === */
         @font-face {
             font-family: 'SuperJoyful';
-            src: url('SuperJoyful-lxwPq.ttf') format('truetype');
+            /* FIX: Changed local path to public URL for the font file */
+            src: url('https://raw.githubusercontent.com/jacegames/SuperJoyful-Font/main/SuperJoyful-lxwPq.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
@@ -717,7 +718,7 @@
     </div>
     
     <audio id="background-music" loop>
-        <source src="music.mp3" type="audio/mpeg">
+        <source src="https://jacegames.github.io/music.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -829,7 +830,8 @@
         
         // === FIXED ICON FALLBACK LOGIC (AVIF, WebP, JPG, and JPEG checked) ===
         const ICON_EXTENSIONS = ['.png', '.avif', '.webp', '.jpg', '.jpeg', '.ico'];
-        const FALLBACK_IMG = "icons/fallback-placeholder.png";
+        // FIX: Changed local path to public URL for the fallback image
+        const FALLBACK_IMG = "https://i.imgur.com/Kj3d2k0.png"; 
 
         function tryNextIcon(imgElement) {
             let attemptIndex = parseInt(imgElement.getAttribute('data-icon-attempt') || '0', 10);
@@ -856,8 +858,13 @@
         function createGameCard(game) {
             const name = game.name;
             const category = game.category.toLowerCase().replace(/\s/g, '-'); 
-            const link = `./games/${name}.html`;
-            const imageBasePath = `icons/${name}`; 
+            
+            // FIX: Prepended a public base URL to the game link
+            const link = `https://jacegames.github.io/games/${name}.html`;
+            
+            // FIX: Prepended a public base URL to the icon path
+            const imageBasePath = `https://jacegames.github.io/icons/${name}`; 
+            
             const initialExt = ICON_EXTENSIONS[0]; 
             const initialImageSrc = `${imageBasePath}${initialExt}`;
             
