@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaces Games - 150 Apps</title>
+    <link rel="icon" type="image/png" href="icon.png"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Rubik:wght@700&display=swap" rel="stylesheet">
+    
+    <meta property="og:title" content="Jaces Unblocked Games - Play 150+ Games FREE!" />
+    <meta property="og:description" content="Your source for unblocked games and endless fun. Featuring 150+ games, a cloak, a game filter, and more!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jaces-games.vercel.app/" /> 
+    <meta property="og:image" content="https://jaces-games.vercel.app/icon.png" /> 
+    <meta property="og:image:alt" content="A neon-style Jaces Games logo." />
+    <meta name="theme-color" content="#00bfff"> <style>
+<style>
+        /* === CUSTOM FONT DEFINITION - REMOVED: SuperJoyful-lxwPq.ttf is not accessible in this environment. === */
+
+        /* * === FILTER-RESISTANT BASE STYLES === */
+        body {
+            /* Using the hosted 'Rubik' font as the primary display font. */
+            font-family: 'Rubik', 'Inter', sans-serif !important; 
+            /* --- BACKGROUND STYLES (Mobile Default) --- */
+            background-color: #0f172a !important;
+            background-image: url('backgrounds/mobile wallpaper bg.png') !important; 
+            background-size: cover !important;
+            background-attachment: fixed !important;
+            background-position: center !important;
+            min-height: 100vh !important;
+            padding: 0.5rem 1rem 2rem 1rem !important; 
+            position: relative !important;
+            line-height: 1.5 !important; 
+        }
+        
+        /* --- PC BACKGROUND MEDIA QUERY (Switches at 768px) --- */
+        @media (min-width: 768px) {
+            body {
+                /* NEW PC Background */
+                background-image: url('backgrounds/wallpaper bg.png') !important;
+            }
+        }
+        
+        /* === NEW: SIMPLE BACKGROUND (Removes custom backgrounds) === */
+        .simple-bg {
+            background-image: none !important;
+            background-color: #0f172a !important; 
+        }
+        /* !----------------------------------------------------! */
+        
+        /* Version Tag: Forced Position - ENHANCED VISIBILITY */
+        .version-tag {
+            position: fixed !important; /* Stays visible when scrolling */
+            top: 0.25rem !important;
+            right: 0.75rem !important;
+            
+            /* Enhanced Visibility */
+            color: #fff !important; /* Bright white text */
+            background-color: rgba(15, 23, 42, 0.95) !important; /* Dark, nearly opaque background */
+            padding: 0.3rem 0.6rem !important;
+            border-radius: 0.5rem !important;
+            
+            font-size: 1.1rem !important; /* Larger font */
+            font-weight: 800 !important; /* Extra bold */
+            font-family: 'Rubik', sans-serif !important; /* Use the working font */
+            
+            /* Neon Green Glow/Border */
+            border: 2px solid #34d399 !important; 
+            box-shadow: 
+                0 0 10px 3px rgba(52, 211, 153, 0.8), 
+                0 0 20px 5px rgba(52, 211, 153, 0.5) !important; 
+            
+            z-index: 100 !important; /* High Z-index */
+        }
+
+        /* Main Container: Force Layout, Dark Mode, and NEON OUTLINE */
+        .main-container {
+            width: 100% !important;
+            max-width: 1152px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            text-align: center !important;
+            padding: 1rem 2.5rem 2.5rem 2.5rem !important; 
+            
+            /* Background Opacity (0.8) */
+            background-color: rgba(30, 41, 59, 0.8) !important; 
+            
+            color: #e2e8f0 !important; 
+            border-radius: 1.5rem !important; 
+            
+            /* Neon Blue Border */
+            border: 2px solid #00bfff !important; 
+            
+            /* Neon Blue Box Shadow/Glow (Combined with original depth shadow) */
+            box-shadow: 
+                0 0 10px 5px rgba(0, 191, 255, 0.8), 
+                0 0 20px 10px rgba(0, 191, 255, 0.5), 
+                0 20px 25px -5px rgba(0, 0, 0, 0.5), 
+                0 8px 10px -6px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        /* === NEW: Top-Left Controls Wrapper === */
+        .top-left-controls {
+            position: fixed !important; 
+            top: 1rem !important; 
+            left: 1rem !important; 
+            z-index: 900; 
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem; /* Space between filter and buttons */
+        }
+
+        /* === Filter/Category Dropdown Styles === */
+        .filter-container {
+            z-index: 900; 
+            text-align: left !important;
+            padding: 0.5rem !important; 
+            border-radius: 0.75rem !important;
+            background-color: rgba(15, 23, 42, 0.9) !important;
+            /* RED NEON OUTLINE */
+            border: 2px solid #ff0077 !important; 
+            box-shadow: 
+                0 0 10px 3px rgba(255, 0, 119, 0.8), 
+                0 0 20px 5px rgba(255, 0, 119, 0.5) !important; 
+        }
+        
+        #category-select {
+            padding: 0.5rem 1rem !important;
+            border-radius: 0.5rem !important;
+            border: none !important; 
+            background-color: #0f172a !important; 
+            color: #e2e8f0 !important;
+            font-family: 'Rubik', 'Inter', sans-serif !important;
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            box-shadow: none !important;
+        }
+        
+        #category-select:focus {
+            outline: none !important;
+            box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5) !important; 
+        }
+        
+        /* === Settings Button Style === */
+        #settings-button {
+            padding: 0.5rem 1rem !important;
+            border-radius: 0.75rem !important;
+            background-color: rgba(15, 23, 42, 0.9) !important;
+            color: #e2e8f0 !important;
+            font-family: 'Rubik', 'Inter', sans-serif !important;
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            /* Neon Green Outline */
+            border: 2px solid #34d399 !important; 
+            box-shadow: 
+                0 0 10px 3px rgba(52, 211, 153, 0.8), 
+                0 0 20px 5px rgba(52, 211, 153, 0.5) !important; 
+            transition: all 0.2s;
+        }
+        #settings-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* === Discord Button Style === */
+        #discord-button {
+            padding: 0.5rem 1rem !important;
+            border-radius: 0.75rem !important;
+            background-color: rgba(15, 23, 42, 0.9) !important;
+            color: #e2e8f0 !important;
+            font-family: 'Rubik', 'Inter', sans-serif !important;
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            /* Neon Purple Outline (Discord Color) */
+            border: 2px solid #7289da !important; 
+            box-shadow: 
+                0 0 10px 3px rgba(114, 137, 218, 0.8), 
+                0 0 20px 5px rgba(114, 137, 218, 0.5) !important; 
+            transition: all 0.2s;
+        }
+        #discord-button:hover {
+            transform: scale(1.05);
+        }
+        
+        /* === Settings Modal Styles === */
+        .settings-modal-overlay {
+            display: none; 
+            position: fixed;
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            align-items: center; 
+            justify-content: center;
+            background-color: rgba(0,0,0,0.8); 
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            transition: background-color 0.3s;
+        }
+
+        .settings-modal-content {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 25px;
+            border-radius: 1rem;
+            width: 90%; 
+            max-width: 400px;
+            border: 2px solid #34d399; /* Green border matching the button */
+            box-shadow: 0 0 15px rgba(52, 211, 153, 0.5);
+            animation: fadeIn 0.3s forwards; 
+        }
+        .settings-modal-content h3 {
+            color: #60a5fa;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        .setting-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #334155;
+            font-size: 1.1rem;
+        }
+        .setting-option:last-child {
+            border-bottom: none;
+        }
+        /* Style for the close button in the modal */
+        .modal-close-button {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 20px;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+        .modal-close-button:hover,
+        .modal-close-button:focus {
+            color: #ff3333;
+        }
+        
+        /* === Notification Toast Styles (TOP MIDDLE, 5s theme) === */
+        #notification-toast {
+            position: fixed !important;
+            top: -60px !important; /* Start off-screen */
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            z-index: 10000 !important;
+            padding: 10px 20px !important;
+            background-color: #34d399 !important; /* Neon Green background */
+            color: #0f172a !important; /* Dark text */
+            font-family: 'Rubik', sans-serif !important;
+            font-size: 1.1rem !important;
+            font-weight: 800 !important;
+            border-radius: 0 0 10px 10px !important; /* Rounded bottom edges */
+            /* Matching neon glow effect */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 10px 3px rgba(52, 211, 153, 0.8) !important;
+            opacity: 0 !important;
+            /* Animation for sliding in/out */
+            transition: top 0.5s ease-out, opacity 0.5s ease-out !important;
+        }
+        /* Class to slide it into view */
+        #notification-toast.show {
+            top: 0 !important;
+            opacity: 1 !important;
+        }
+        
+        /* === MODIFIED: Loading Screen Styles (Centering + Static Background) === */
+        #loading-screen {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            /* Static Background */
+            background-color: #0f172a !important; 
+            /* UPDATED BACKGROUND IMAGE */
+            background-image: url('https://i.pinimg.com/73x/34/58/74/345874d055b429ba9af404d48e52b373.jpg') !important;
+            background-size: cover !important; /* No zoom */
+            background-position: center !important; /* Centered */
+            /* Removed: animation: move-bg 30s linear infinite !important; */
+            
+            z-index: 99999 !important; /* Highest layer */
+            display: flex !important;
+            justify-content: center !important; /* Center horizontally */
+            align-items: center !important; /* Center vertically */
+            flex-direction: column !important;
+            opacity: 1;
+            transition: opacity 0.5s ease-out; /* For fade-out effect */
+        }
+        
+        /* Removed: @keyframes move-bg */
+        
+        #loading-screen.hidden {
+            opacity: 0;
+            /* Prevents the invisible screen from blocking clicks */
+            pointer-events: none !important; 
+        }
+
+        .loading-content {
+            text-align: center;
+            /* Optional: Add a subtle backdrop to make text stand out against the moving background */
+            padding: 20px;
+            background-color: rgba(15, 23, 42, 0.8); 
+            border-radius: 1rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .animated-title-loader {
+            font-family: 'Rubik', sans-serif !important; /* Changed font to Rubik */
+            font-size: 4rem !important; /* Larger text */
+            margin-bottom: 0.5rem !important; /* Reduced margin to make space for indicator */
+            
+            /* Replicating animated-title gradient */
+            background: linear-gradient(90deg, #60a5fa, #facc15, #ef4444, #8b5cf6, #34d399);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 4s linear infinite; 
+            text-align: center !important; /* Centering the text as requested */
+        }
+
+        /* === NEW PULSATING INDICATOR STYLES === */
+        .loading-indicator {
+            font-family: 'Inter', sans-serif !important;
+            font-size: 1.5rem !important;
+            font-weight: 600 !important;
+            color: #34d399 !important; /* Neon Green */
+            margin-top: 1rem !important;
+            margin-bottom: 0.5rem !important;
+            animation: pulse-glow 1.5s infinite alternate;
+        }
+        
+        @keyframes pulse-glow {
+            0% { 
+                opacity: 0.8; 
+                text-shadow: 0 0 5px #34d399;
+            }
+            100% { 
+                opacity: 1; 
+                text-shadow: 0 0 15px #34d399, 0 0 25px rgba(52, 211, 153, 0.5); 
+            }
+        }
+        
+        /* New rule to disable hover outline/glow */
+        .animated-title-loader:hover {
+            text-shadow: none !important; 
+            outline: none !important;
+        }
+
+        /* Simple loading bar - ENHANCED */
+        .loader-bar {
+            width: 250px;
+            height: 10px; /* Increased height from 8px */
+            margin: 0 auto; 
+            background: rgba(51, 65, 85, 0.7); /* Lighter dark track */
+            border: 1px solid #00bfff; /* Blue border to match main container */
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 
+                0 0 5px 1px rgba(0, 191, 255, 0.5), /* Faint blue glow for track */
+                0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .loader-bar::before {
+            content: '';
+            display: block;
+            height: 100%;
+            width: 0%; 
+            background: #34d399; 
+            border-radius: 4px;
+            /* 3-second animation to fill the bar */
+            animation: load-progress 3s forwards; 
+            box-shadow: 
+                0 0 5px #34d399, /* Original glow */
+                0 0 10px #34d399; /* Stronger neon glow for progress */
+        }
+
+        @keyframes load-progress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        
+        /* === NEW: Main Content Visibility Toggle (Starts Invisible) === */
+        .content-wrapper {
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+        
+        .content-wrapper.visible {
+            opacity: 1;
+        }
+        /* =========================================== */
+
+        
+        /* Header and Subtitle Margins (No change) */
+        h1 {
+            margin-top: 0 !important; 
+            font-size: 3rem !important; 
+            font-weight: 800 !important; 
+            margin-bottom: 0 !important; 
+        }
+        #dynamic-subtitle {
+            margin-top: 0.5rem !important; 
+            margin-bottom: 1.5rem !important; 
+            font-size: 1.5rem !important; 
+            font-weight: 600 !important; 
+            animation: color-cycle 10s infinite alternate !important; 
+        }
+
+        /* Grid Layout (No change) */
+        .game-grid {
+            display: grid !important;
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important; 
+            gap: 1.5rem !important;
+        }
+        @media (min-width: 640px) {
+            .game-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+                gap: 2rem !important;
+            }
+        }
+        @media (min-width: 1024px) { 
+            .game-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+            }
+        }
+        
+        /* Game Card Styles (No change) */
+        .link-card {
+            display: block !important;
+            transition: transform 0.3s ease !important;
+            border-radius: 0.75rem !important;
+        }
+        .link-card:hover {
+            transform: scale(1.05) !important;
+        }
+        .group.hidden-by-filter {
+            display: none !important;
+        }
+        
+        .link-card img {
+            width: 100% !important;
+            height: auto !important;
+            aspect-ratio: 1 / 1 !important;
+            object-fit: cover !important;
+            border-radius: 0.75rem !important;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.3) !important;
+            border: 4px solid #334155 !important;
+            transition: all 0.3s ease !important;
+        }
+        .group:hover .link-card img {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 15px rgba(52, 211, 153, 0.5) !important; 
+        }
+        
+        /* Game Name Styles (No change) */
+        .item-name {
+            font-size: 1.4rem !important; 
+            font-weight: 600 !important; 
+            margin-top: 0.75rem !important;
+            color: #e5e5e5 !important; 
+            transition: color 0.2s ease !important;
+        }
+        .group:hover .item-name {
+            color: #34d399 !important; 
+        }
+
+        /* Footer Text Styles (No change) */
+        .footer-note {
+            margin-top: 2rem !important; 
+            font-size: 0.875rem !important; 
+            color: #9ca3af !important; 
+        }
+        .glowing-red {
+            margin-top: 0.5rem !important; 
+            color: #ff3333 !important; 
+            animation: glowing-red 1.5s infinite alternate !important;
+            font-weight: bold !important;
+            font-size: 0.875rem !important;
+        }
+        
+        /* Scrollbar and Animation Keyframes (No Change) */
+        body::-webkit-scrollbar { width: 12px; }
+        body::-webkit-scrollbar-track { background: #0f172a; }
+        body::-webkit-scrollbar-thumb { background-color: #334155; border-radius: 20px; border: 3px solid #0f172a; }
+        body::-webkit-scrollbar-thumb:hover { background-color: #475569; }
+
+        .animated-title {
+            background: linear-gradient(90deg, #60a5fa, #facc15, #ef4444, #8b5cf6, #34d399);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 4s linear infinite;
+        }
+        @keyframes gradient-shift {
+            to { background-position: -200% center; }
+        }
+
+        #dynamic-subtitle {
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+        #dynamic-subtitle.fade-out {
+            opacity: 0;
+        }
+        @keyframes color-cycle {
+            0%   { color: #8b5cf6; } 25%  { color: #34d399; } 50%  { color: #facc15; } 75%  { color: #f87171; } 100% { color: #8b5cf6; }
+        }
+        @keyframes glowing-red {
+            0% { text-shadow: 0 0 5px rgba(255, 0, 0, 0.5), 0 0 10px rgba(255, 0, 0, 0.4); }
+            50% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px rgba(255, 0, 0, 0.8); }
+            100% { text-shadow: 0 0 5px rgba(255, 0, 0, 0.5), 0 0 10px rgba(255, 0, 0, 0.4); }
+        }
+        
+        /* === UPDATE LOG MODAL STYLES (Existing) === */
+        .modal-overlay {
+            display: none; 
+            position: fixed;
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            align-items: center; 
+            justify-content: center;
+            background-color: rgba(0,0,0,0.8); 
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            transition: background-color 0.5s; 
+        }
+
+        .modal-content {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            margin: 20px auto; 
+            padding: 25px;
+            border: 1px solid #334155;
+            border-radius: 1rem;
+            width: 90%; 
+            max-width: 500px;
+            max-height: 90vh; 
+            overflow-y: auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.5s forwards; 
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .modal-content.fade-out {
+            animation: fadeOut 0.5s forwards; 
+        }
+
+        .modal-content h2 {
+            color: #34d399;
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            padding-right: 30px; 
+        }
+        
+        .modal-content ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-content ul li {
+            background: #0f172a;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-left: 4px solid #60a5fa;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .close-container {
+            position: absolute; 
+            top: 15px;
+            right: 15px;
+        }
+        
+        .close-button {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 20px;
+            transition: color 0.2s;
+            display: block;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #ff3333;
+            cursor: pointer;
+        }
+        
+        /* Keyframes for animation */
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(-20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        
+        @keyframes fadeOut {
+            from {opacity: 1; transform: translateY(0);}
+            to {opacity: 0; transform: translateY(-20px);} 
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2038218004781592"
+     crossorigin="anonymous"></script>
+</head>
+<body class="relative"> 
+    
+    <script>
+        // Setting is ON by default (if localStorage item is null or 'true')
+        // This logic ensures the cloak is ON for first-time visitors as requested.
+        const cloakSetting = localStorage.getItem('cloakEnabled') === 'false' ? false : true; 
+        const isIframe = window.top !== window.self;
+
+        if (cloakSetting && !isIframe) {
+            const currentUrl = window.location.href;
+            
+            // Do not try to cloak if we are already in an 'about:' page (like after a redirection failed)
+            if (currentUrl.startsWith('about:') || currentUrl.startsWith('data:')) {
+                return;
+            }
+
+            try {
+                // Attempt to open the about:blank window
+                const newWindow = window.open('about:blank', '_blank');
+                
+                if (newWindow) {
+                    // The HTML to load the current page inside an iframe
+                    const content = `
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <title>Google Drive</title>
+                            <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/images/branding/product/2x/drive_2020q4_32dp.png">
+                            <style>
+                                html, body { margin: 0; padding: 0; overflow: hidden; height: 100%; width: 100%; }
+                                iframe { border: none; width: 100vw; height: 100vh; display: block; }
+                            </style>
+                        </head>
+                        <body>
+                            <iframe src="${currentUrl}" sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-popups"></iframe>
+                        </body>
+                        </html>
+                    `;
+                    
+                    newWindow.document.write(content);
+                    newWindow.document.close();
+                    
+                    // Redirect the original tab to 'about:blank' to clear its history
+                    window.location.replace('about:blank'); 
+                } else {
+                    console.error("Auto-cloaking failed: Pop-up blocker prevented the new window.");
+                }
+            } catch (e) {
+                console.error("Auto-cloaking failed during document write:", e);
+            }
+        }
+    </script>
+    
+    <div id="loading-screen">
+        <div class="loading-content">
+            <h2 class="animated-title-loader">Jaces Games</h2>
+            <div class="loading-indicator">LOADING...</div>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+    <div id="notification-toast"></div>
+
+    <div id="updateLogModal" class="modal-overlay">
+        <div id="modalContent" class="modal-content" style="position: relative;"> 
+            <div class="close-container">
+                <span class="close-button" onclick="closeModal()">X</span>
+            </div>
+            <h2>✨ Update Log - v1.2.1</h2>
+            <ul>
+                <li>🌐 **NEW Proxy!** Added **Proxy** to the list for greater unblocking reliability.</li>
+                <li>🚀 **Massive Game Drop!** Over **80** new games were recently added to the site.</li>
+                <li>🎮 **Game Filter:** The new category dropdown helps you easily find your favorite game types!</li>
+                <li>⚙️ **Settings Menu:** Implemented the new Settings modal with user-configurable options (Cloak, BG, Music Volume).</li>
+                <li>📝 **Bug Fix:** Fixed an issue where the game list sometimes loaded incorrectly.</li>
+            </ul>
+            <p style="font-size: 0.9rem; color: #9ca3af;">
+                *This pop-up will not appear again unless you clear your browser's local storage.*
+            </p>
+        </div>
+    </div>
+    
+    <div id="settingsModal" class="settings-modal-overlay">
+        <div class="settings-modal-content" style="position: relative;">
+            <span class="modal-close-button" style="right: 15px; top: 15px; position: absolute;" onclick="closeSettingsModal()">X</span>
+            <h3>User Settings</h3>
+
+            <div class="setting-option">
+                <label for="cloak-toggle">About:Blank Cloak <span style="color: #facc15; font-weight: bold;">(BETA)</span></label>
+                <input type="checkbox" id="cloak-toggle" onchange="toggleCloak(this.checked)">
+            </div>
+
+            <div class="setting-option">
+                <label for="bg-toggle">Custom PC/Mobile Backgrounds</label>
+                <input type="checkbox" id="bg-toggle" onchange="toggleCustomBackground(this.checked)">
+            </div>
+            
+            <div class="setting-option" style="flex-direction: column; align-items: flex-start;">
+                <label for="volume-slider" style="margin-bottom: 5px;">Background Music Volume</label>
+                <input type="range" id="volume-slider" min="0" max="100" oninput="toggleMusicVolume(this.value / 100, true)" style="width: 100%;">
+                <span id="volume-percent" style="font-size: 0.9rem; color: #9ca3af; margin-top: 5px;"></span>
+            </div>
+            <p style="font-size: 0.8rem; color: #9ca3af; margin-top: 1.5rem;">
+                *Changes apply instantly and are saved for your next visit. **Cloak requires page reload.***
+            </p>
+        </div>
+    </div>
+    
+    <audio id="background-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div id="content-wrapper" class="content-wrapper">
+
+        <div class="top-left-controls">
+            <div class="filter-container">
+                <select id="category-select" onchange="filterGames(this.value)">
+                    <option value="all">All Games (150)</option>
+                    </select>
+            </div>
+            
+            <button id="settings-button" onclick="openSettingsModal()">
+                ⚙️ Settings
+            </button>
+            
+            <button id="discord-button" onclick="showNotification('Discord server is coming soon!')">
+                🎮 Discord
+            </button>
+        </div>
+        <div class="version-tag">
+            v1.2.1
+        </div>
+
+        <div class="main-container">
+            <h1 class="animated-title">
+                Jaces Unblocked Games
+            </h1>
+            
+            <p id="dynamic-subtitle">
+                </p>
+                
+            <div class="game-grid" id="game-grid">
+                </div>
+            
+            <p class="footer-note">
+                Note: All **150** games are currently available! Enjoy playing!
+            </p>
+            
+            <p class="glowing-red">
+                Some Games Depend On Your Browser or Device and May Not Work.
+            </p>
+            
+            <p style="margin-top: 1rem; font-size: 0.875rem; color: #9ca3af; text-align: center;">
+                &copy; 2025 Jace's Games
+            </p>
+
+        </div>
+        
+    </div>
+    <script>
+        // Get a reference to the grid container
+        const gameGrid = document.getElementById('game-grid');
+        
+        // --- GAME CARD AND OPENING LOGIC ---
+        
+        /**
+         * Opens a new window with the URL 'about:blank' and loads the game 
+         * inside a full-screen iframe to preserve the 'about:blank' address bar content.
+         * @param {string} link - The actual URL of the game file.
+         * @param {string} name - The title of the game.
+         */
+        function openGame(link, name) {
+            // 1. Open a new, clean window with 'about:blank'
+            const newWindow = window.open('about:blank', '_blank');
+
+            if (newWindow) {
+                try {
+                    // 2. Construct the full HTML content with an iframe
+                    const content = `
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <title>${name}</title>
+                            <style>
+                                /* Make sure the iframe fills the entire window */
+                                html, body { margin: 0; padding: 0; overflow: hidden; height: 100%; width: 100%; background: #000; }
+                                #game-frame { 
+                                    border: none; 
+                                    width: 100vw; 
+                                    height: 100vh; 
+                                    display: block; 
+                                }
+                            </style>
+                        </head>
+                        <body>
+                            <iframe id="game-frame" src="${link}" allowfullscreen></iframe>
+                        </body>
+                        </html>
+                    `;
+                    
+                    // 3. Write the content directly into the new window's document
+                    newWindow.document.write(content);
+                    // 4. Close the document write stream (critical for rendering)
+                    newWindow.document.close();
+
+                } catch (e) {
+                    console.error("Failed to inject iframe content into about:blank, falling back to redirection:", e);
+                    // Fallback to simple redirection if the write process fails
+                    newWindow.location.href = link;
+                }
+            } else {
+                // If the pop-up was blocked
+                console.error('Pop-up blocked. Opening game link directly.');
+                window.open(link, '_blank');
+            }
+        }
+        
+        // === FIXED ICON FALLBACK LOGIC (AVIF, WebP, JPG, and JPEG checked) ===
+        const ICON_EXTENSIONS = ['.png', '.avif', '.webp', '.jpg', '.jpeg', '.ico'];
+        const FALLBACK_IMG = "icons/fallback-placeholder.png";
+
+        function tryNextIcon(imgElement) {
+            let attemptIndex = parseInt(imgElement.getAttribute('data-icon-attempt') || '0', 10);
+            const baseNamePath = imgElement.getAttribute('data-basename');
+            
+            attemptIndex++;
+
+            if (baseNamePath && attemptIndex < ICON_EXTENSIONS.length) {
+                const nextExt = ICON_EXTENSIONS[attemptIndex];
+                const newSrc = `${baseNamePath}${nextExt}`;
+
+                imgElement.setAttribute('data-icon-attempt', attemptIndex);
+                imgElement.src = newSrc;
+                
+            } else {
+                imgElement.src = FALLBACK_IMG;
+                imgElement.onerror = null; 
+            }
+        }
+        
+        /**
+         * Dynamically creates a game card, automatically generating paths
+         */
+        function createGameCard(game) {
+            const name = game.name;
+            const category = game.category.toLowerCase().replace(/\s/g, '-'); 
+            const link = `./games/${name}.html`;
+            const imageBasePath = `icons/${name}`; 
+            const initialExt = ICON_EXTENSIONS[0]; 
+            const initialImageSrc = `${imageBasePath}${initialExt}`;
+            
+            const escapedNameForLink = name.replace(/'/g, "\\'"); 
+            const onerrorAttr = `tryNextIcon(this)`;
+            
+            const gameHtml = `
+            <div class="group" data-category="${category}">
+                <a 
+                    href="javascript:void(0)" 
+                    onclick="openGame('${link}', '${escapedNameForLink}')"
+                    class="link-card" 
+                    aria-label="Click to play ${name}"
+                >
+                    <img 
+                        src="${initialImageSrc}" 
+                        alt="Icon for ${name} game" 
+                        data-icon-attempt="0"
+                        data-basename="${imageBasePath}" 
+                        onerror="${onerrorAttr}"
+                    >
+                </a>
+                <p class="item-name">
+                    ${name}
+                </p>
+            </div>
+            `;
+            gameGrid.innerHTML += gameHtml; 
+        }
+
+        // Game data (Including categories for filtering)
+        // UPDATED: Added 'Proxy' to the list. Total games: 150
+        const gameList = [
+            { name: 'Proxy 1', category: 'Proxys' },
+            { name: '10 Minutes Till Dawn', category: 'Action' },
+            { name: '12 Mini Battles', category: 'Fighting' },
+            { name: '3D Geometry Dash', category: 'Rhythm' },
+            { name: '8 Ball Pool', category: 'Sports' },
+            { name: '99 Nights in the Forest', category: 'Horror' },
+            { name: '99 percent will fail', category: 'Puzzle' },
+            { name: 'A Bite at Freddys', category: 'Horror' },
+            { name: 'A1mBOT PvP', category: 'Shooting' },
+            { name: 'Aquapark Idle', category: 'Simulator' },
+            { name: 'Awesome Tanks', category: 'Shooting' },
+            { name: 'Awesome Tanks 2', category: 'Shooting' },
+            { name: 'Bacon May Die', category: 'Action' },
+            { name: 'Bad Monday Simulator', category: 'Simulator' },
+            { name: 'Bad Parenting 1', category: 'Simulator' },
+            { name: 'Bad Time Simulator', category: 'Fighting' },
+            { name: 'Baldis Basics Camping', category: 'Horror' },
+            { name: 'Bank Breakout 2', category: 'Platformer' },
+            { name: 'Baseball Bros', category: 'Sports' },
+            { name: 'Basket Battle', category: 'Sports' },
+            { name: 'Basket Bros', category: 'Sports' },
+            { name: 'Basket Random', category: 'Sports' },
+            { name: 'Basketball Frvr', category: 'Sports' },
+            { name: 'Bendy and the Ink Machine', category: 'Horror' },
+            { name: 'BitLife', category: 'Simulator' },
+            { name: 'Blade Ball', category: 'Action' },
+            { name: 'Block Blast', category: 'Puzzle' },
+            { name: 'BLOODMONEY!', category: 'Action' },
+            { name: 'Bloons TD 2', category: 'Tower Defense' },
+            { name: 'Bottle Jump 3D', category: 'Arcade' },
+            { name: 'Bouncemasters', category: 'Arcade' },
+            { name: 'Boxing Random', category: 'Fighting' },
+            { name: 'Bridge Race', category: 'Racing' },
+            { name: 'BuildNow.gg', category: 'Shooting' },
+            { name: 'Candy Crush', category: 'Puzzle' },
+            { name: 'Cart Ride', category: 'Racing' },
+            { name: 'Celeste', category: 'Platformer' },
+            { name: 'Chicken Battle', category: 'Fighting' },
+            { name: 'Class of 09', category: 'Simulator' },
+            { name: 'Cookie Clicker', category: 'Clicker' },
+            { name: 'Crazy Cars', category: 'Racing' },
+            { name: 'Crossy Road', category: 'Arcade' },
+            { name: 'Death Run', category: 'Action' },
+            { name: 'Doge Miner', category: 'Clicker' },
+            { name: 'Drift Boss', category: 'Racing' },
+            { name: 'Drift Hunters', category: 'Racing' },
+            { name: 'Drive Mad', category: 'Racing' },
+            { name: 'Duck Duck Clicker', category: 'Clicker' },
+            { name: 'Elytra Coming', category: 'Simulator' },
+            { name: 'Escape Road', category: 'Racing' },
+            { name: 'Escape Road 2', category: 'Racing' },
+            { name: 'Five Nights At Freddys Free Roam', category: 'Horror' },
+            { name: 'Five Nights at Candys', category: 'Horror' },
+            { name: 'Five Nights at Candys 2', category: 'Horror' },
+            { name: 'Five Nights at Freddys', category: 'Horror' },
+            { name: 'Five Nights at Freddys 2', category: 'Horror' },
+            { name: 'Five Nights at Freddys 3', category: 'Horror' },
+            { name: 'Five Nights at Freddys 4', category: 'Horror' },
+            { name: 'Five Nights at Freddys 4 Halloween', category: 'Horror' },
+            { name: 'Five Nights at Freddys Pizza Simulator', category: 'Simulator' },
+            { name: 'Five Nights at Freddys Sister Location', category: 'Horror' },
+            { name: 'Five Nights at Freddys Ultimate Custom Night', category: 'Horror' },
+            { name: 'Five Nights at Freddys World', category: 'RPG' },
+            { name: 'FNF Vs. Hypnos Lullaby v2', category: 'Rhythm' },
+            { name: 'FNF Vs. Sonic.EXE 3.0', category: 'Rhythm' },
+            { name: 'FNF vs Bob v2.0 (Bob’s Onslaught)', category: 'Rhythm' },
+            { name: 'Football Bros', category: 'Sports' },
+            { name: 'Friday Night Funkin', category: 'Rhythm' },
+            { name: 'Funny Ragdoll Wrestlers', category: 'Fighting' },
+            { name: 'Geometry Dash Lite', category: 'Rhythm' },
+            { name: 'Geometry Dash Wave Challenge', category: 'Rhythm' },
+            { name: 'Granny', category: 'Horror' },
+            { name: 'Granny 2', category: 'Horror' },
+            { name: 'Granny 3', category: 'Horror' },
+            { name: 'Granny Multiplayer', category: 'Horror' },
+            { name: 'Growden.io', category: 'Action' },
+            { name: 'Gunspin', category: 'Action' },
+            { name: 'Hanger', category: 'Arcade' },
+            { name: 'Hollow Knight', category: 'Platformer' },
+            { name: 'Hotline Miami', category: 'Shooting' },
+            { name: 'Jelly Drift', category: 'Racing' },
+            { name: 'Karlson', category: 'Shooting' },
+            { name: 'Kart Bros.io', category: 'Racing' },
+            { name: 'Kindergarten', category: 'Adventure' },
+            { name: 'Kindergarten 2', category: 'Adventure' },
+            { name: 'Kindergarten 3', category: 'Adventure' },
+            { name: 'Lemon Clicker', category: 'Clicker' },
+            { name: 'Mega Mart Tycoon', category: 'Simulator' },
+            { name: 'Melon Playground', category: 'Simulator' },
+            { name: 'Minecraft 1.12.2', category: 'Sandbox' },
+            { name: 'Minecraft 1.21.4', category: 'Sandbox' },
+            { name: 'Minecraft v1.8.8', category: 'Sandbox' },
+            { name: 'Ninja Obby Parkour', category: 'Platformer' },
+            { name: 'Noob vs Pro', category: 'Action' },
+            { name: 'OvO', category: 'Platformer' },
+            { name: 'OvO 2', category: 'Platformer' },
+            { name: 'OvO 3 Dimensions', category: 'Platformer' },
+            { name: 'Paint Map Simulator', category: 'Simulator' },
+            { name: 'Paper.io 2', category: 'Action' },
+            { name: 'People Playground', category: 'Sandbox' },
+            { name: 'Pizza Clicker', category: 'Clicker' },
+            { name: 'Pizza Tower', category: 'Platformer' },
+            { name: 'Poly Track', category: 'Racing' },
+            { name: 'R.E.P.O', category: 'Shooting' },
+            { name: 'Racing Jump', category: 'Racing' },
+            { name: 'Raft', category: 'Survival' },
+            { name: 'RERUN', category: 'Racing' },
+            { name: 'Retro Bowl', category: 'Sports' },
+            { name: 'Robby Blocks', category: 'Arcade' },
+            { name: 'Rocket Soccer Derby', category: 'Sports' },
+            { name: 'Run 1', category: 'Platformer' },
+            { name: 'Run 2', category: 'Platformer' },
+            { name: 'Run 3', category: 'Platformer' },
+            { name: 'Schoolboy Runaway', category: 'Action' },
+            { name: 'Slender The 8 Pages', category: 'Horror' },
+            { name: 'Slime Rancher', category: 'Adventure' },
+            { name: 'Slope', category: 'Arcade' },
+            { name: 'Slither v2', category: 'Action' },
+            { name: 'Snow Rider 3d', category: 'Arcade' },
+            { name: 'Snowball.io', category: 'Shooting' },
+            { name: 'Snowboard Obby', category: 'Racing' },
+            { name: 'Soccer But You Are A Car', category: 'Sports' },
+            { name: 'Soccer Random', category: 'Sports' },
+            { name: 'Sonic CD', category: 'Platformer' },
+            { name: 'Sonic Mania', category: 'Platformer' },
+            { name: 'Sonic the Hedgehog 2 Communitys Cut', category: 'Platformer' },
+            { name: 'Sonic the Hedgehog 3 Angel Island Remastered', category: 'Platformer' },
+            { name: 'Sonic.EXE (ORIGINAL)', category: 'Horror' },
+            { name: 'Soundboard', category: 'Utility' },
+            { name: 'Spacebar Clicker', category: 'Clicker' },
+            { name: 'Sprunki', category: 'Action' },
+            { name: 'Squid Game Playground', category: 'Survival' },
+            { name: 'Steal A Brainrot', category: 'Action' },
+            { name: 'Stickman Hook', category: 'Platformer' },
+            { name: 'Stone Grass Mowing Simulator', category: 'Simulator' },
+            { name: 'Subway Surfers', category: 'Arcade' },
+            { name: 'Super Mario 64', category: 'Platformer' },
+            { name: 'Super Mario Bros', category: 'Platformer' },
+            { name: 'Survival Race', category: 'Survival' },
+            { name: 'Tag', category: 'Action' },
+            { name: 'Tattletail', category: 'Horror' },
+            { name: 'Temple Run 2', category: 'Arcade' },
+            { name: 'Thats Not My Neighbor', category: 'Horror' },
+            { name: 'The Man In The Window', category: 'Horror' },
+            { name: 'They Are Coming', category: 'Shooting' },
+            { name: 'Ultimate Car Driving Game', category: 'Racing' },
+            { name: 'Ultrakill', category: 'Shooting' },
+            { name: 'WebFishing', category: 'Utility' },
+            { name: 'Wordle Unlimited', category: 'Puzzle' },
+            { name: 'Yandere Simulator', category: 'Simulator' },
+            { name: 'Yume Nikki', category: 'Adventure' }
+        ];
+        
+        // --- CATEGORY FILTERING LOGIC ---
+        function populateCategories() {
+            const select = document.getElementById('category-select');
+            const categories = new Set();
+            
+            gameList.forEach(game => categories.add(game.category));
+            
+            const sortedCategories = Array.from(categories)
+                .filter(c => c !== 'Utility')
+                .sort();
+
+            const categoryCounts = {};
+            gameList.forEach(game => {
+                categoryCounts[game.category] = (categoryCounts[game.category] || 0) + 1;
+            });
+            
+            // Note: The total game count in the 'All Games' option needs to be updated manually or by script.
+            // The HTML was updated to 100, this script part will reflect that in the dropdown.
+            select.options[0].textContent = `All Games (${gameList.length})`; 
+            
+            sortedCategories.forEach(category => {
+                const count = categoryCounts[category];
+                const slug = category.toLowerCase().replace(/\s/g, '-');
+                const option = document.createElement('option');
+                option.value = slug;
+                option.textContent = `${category} (${count})`;
+                select.appendChild(option);
+            });
+        }
+        
+        function filterGames(selectedCategorySlug) {
+            const allGameCards = gameGrid.querySelectorAll('.group');
+            
+            allGameCards.forEach(card => {
+                if (selectedCategorySlug === 'all') {
+                    card.classList.remove('hidden-by-filter');
+                } else {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (cardCategory === selectedCategorySlug) {
+                        card.classList.remove('hidden-by-filter');
+                    } else {
+                        card.classList.add('hidden-by-filter');
+                    }
+                }
+            });
+        }
+        
+        // Loop through the list and create the card for each game
+        gameList.forEach(game => {
+            createGameCard(game); 
+        });
+        
+        // Initialize the category dropdown after all cards are written
+        populateCategories();
+        
+        // --- NEW: Notification Toast System (5-second duration) ---
+        let toastTimeout = null;
+        const toastElement = document.getElementById('notification-toast');
+
+        /**
+         * Shows a notification toast at the top of the screen.
+         * @param {string} message - The message to display.
+         * @param {number} duration - The duration in milliseconds (default 5000ms).
+         */
+        function showNotification(message, duration = 5000) {
+            // Clear any existing timeout
+            if (toastTimeout) {
+                clearTimeout(toastTimeout);
+                toastTimeout = null;
+            }
+            
+            toastElement.textContent = message;
+            toastElement.classList.add('show');
+
+            // Set a new timeout to hide the toast
+            toastTimeout = setTimeout(() => {
+                toastElement.classList.remove('show');
+            }, duration);
+        }
+        // --- END Notification Toast System ---
+
+        // --- SETTINGS MODAL AND PERSISTENCE LOGIC ---
+        const settingsModal = document.getElementById('settingsModal');
+        let MAX_VOLUME = 1.0; 
+
+        // Function to open settings modal and load current states
+        function openSettingsModal() {
+            settingsModal.style.display = 'flex';
+            loadSettings(); 
+        }
+
+        // Function to close settings modal
+        function closeSettingsModal() {
+            settingsModal.style.display = 'none';
+        }
+        
+        /**
+         * Sets the music volume and saves it to local storage.
+         * @param {number} volume - The volume level (0.0 to 1.0).
+         * @param {boolean} liveUpdate - True if updating from the slider. Saves to storage.
+         */
+        function toggleMusicVolume(volume, liveUpdate) {
+            const finalVolume = Math.min(1.0, Math.max(0.0, volume));
+            
+            // Update the music element's volume
+            music.volume = finalVolume;
+            // Update the global maximum volume for tab-fading logic
+            MAX_VOLUME = finalVolume; 
+
+            // Update the percentage display
+            const percentElement = document.getElementById('volume-percent');
+            if (percentElement) {
+                percentElement.textContent = `${Math.round(finalVolume * 100)}%`;
+            }
+            
+            // Save to storage if it's a live update or explicit call to save
+            if (liveUpdate === true || liveUpdate === undefined) { 
+                localStorage.setItem('musicVolume', finalVolume.toString());
+            }
+        }
+
+
+        // Function to load the current state of toggles from localStorage
+        function loadSettings() {
+            // 1. Cloak Setting 
+            // Default: ON (true) if not set in storage.
+            const isCloakEnabled = localStorage.getItem('cloakEnabled') === 'false' ? false : true;
+            document.getElementById('cloak-toggle').checked = isCloakEnabled;
+
+            // 2. Background Setting 
+            // Default: ON (true). Only OFF if explicitly set to 'false'.
+            const isBgEnabled = localStorage.getItem('customBgEnabled') === 'false' ? false : true;
+            document.getElementById('bg-toggle').checked = isBgEnabled;
+            
+            // 3. Music Volume Setting 
+            const defaultVolume = 0.25; // 25% default
+            let savedVolume = parseFloat(localStorage.getItem('musicVolume'));
+            
+            // Use saved volume, or default volume if not set/invalid
+            const finalVolume = isNaN(savedVolume) ? defaultVolume : savedVolume;
+            
+            // Convert float volume (0.0 - 1.0) to range value (0 - 100)
+            const rangeValue = Math.round(finalVolume * 100);
+            
+            document.getElementById('volume-slider').value = rangeValue;
+            
+            // Apply the volume without saving again (liveUpdate = false)
+            toggleMusicVolume(finalVolume, false); 
+        }
+
+        // Function to toggle Cloak setting - NOW USES 5-SECOND TOAST
+        function toggleCloak(isChecked) {
+            localStorage.setItem('cloakEnabled', isChecked ? 'true' : 'false');
+            
+            if (isChecked) {
+                // Duration set to 5000ms as requested
+                showNotification("Cloak ON. Reload page for the About:Blank effect.", 5000); 
+            } else {
+                showNotification("Cloak OFF. The page will load normally next time.", 5000);
+            }
+        }
+
+        // Function to toggle Custom Background setting - NOW USES 5-SECOND TOAST
+        function toggleCustomBackground(isChecked) {
+            localStorage.setItem('customBgEnabled', isChecked ? 'true' : 'false');
+            applyBackgroundSetting(); // Apply changes immediately
+            
+            showNotification(isChecked 
+                ? "Custom backgrounds ENABLED. Enjoy the themes!"
+                : "Custom backgrounds DISABLED. Using plain dark background.", 5000);
+        }
+
+        // Function to apply the background setting based on localStorage
+        function applyBackgroundSetting() {
+            // Default is 'true' if not set
+            const isBgEnabled = localStorage.getItem('customBgEnabled') === 'false' ? false : true;
+            const body = document.body;
+            
+            if (isBgEnabled) {
+                body.classList.remove('simple-bg');
+            } else {
+                body.classList.add('simple-bg');
+            }
+        }
+        
+        // --- UPDATE LOG LOGIC (Existing) ---
+        const modal = document.getElementById('updateLogModal');
+        const modalContent = document.getElementById('modalContent');
+        // UPDATED: Storage key to reflect the new version
+        const storageKey = 'updateLogShown_v1.2.1'; 
+        const fadeDuration = 500; 
+
+        function closeModal() {
+            localStorage.setItem(storageKey, 'true');
+            modalContent.classList.add('fade-out');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                modalContent.classList.remove('fade-out'); 
+            }, fadeDuration); 
+        }
+
+        // The modal check will happen after the loading screen is hidden
+        function checkUpdateLog() {
+            if (localStorage.getItem(storageKey) !== 'true') {
+                modal.style.display = 'flex'; 
+                window.onclick = function(event) {
+                    if (event.target === modal) {
+                        closeModal();
+                    }
+                }
+            }
+        }
+        
+        // --- Dynamic Subtitle Logic (Existing) ---
+        const subtitleElement = document.getElementById('dynamic-subtitle');
+        const phrases = [
+            // Updated to reflect 150 games
+            "Now featuring all 150 available games! Click on an image to play.",
+            "Your source for unblocked games and endless fun.",
+            "150 games and counting! Find your next favorite.",
+            "Play anywhere, anytime. All games are unblocked.",
+            // Updated to mention Proxy 2
+            "Try the new Proxy 2 for even better unblocking reliability!",
+            "Psst... you should probably click on Cookie Clicker. Just saying.", 
+            "Your internet history is safe with us... probably.", 
+            "Warning: May cause extreme fun. Proceed with caution!", 
+            "Boredom is a lie. Play these instead of doing your homework.", 
+            "Don't worry, these games are school-approved... by us!", 
+            "My therapist told me to embrace my inner child. So I played Ultrakill.", 
+            "Check out our full list, from FNAF to Minecraft!", 
+            "Proof that procrastination can be productive. Sort of.", 
+            "New games are added regularly, so check back soon!", 
+            "Shhh! Don't tell your IT admin we're here.", 
+            "Did you know Paper.io 2 is a classic? Give it a try!", 
+            "We've optimized this site for maximum fun and minimal attention span.", 
+            "Escape the boredom with games like Granny and Baldis Basics!",
+            "Remember to blink. And maybe stretch.", 
+            "Need a quick break? Snow Rider 3D is waiting.",
+            "If you get caught, blame the guy who coded the flashing title.", 
+            "Challenge your reflexes with Geometry Dash Wave.",
+            "Warning: May cause intense focus on non-school-related activities.", 
+            "We've got the classics and the new hits—all unblocked.",
+            "Why study when you can click a cookie 10,000 times?", 
+            "Unleash your inner gamer. Explore the collection!",
+            "Find fun in every click. Start playing now!",
+            "From simple clickers to intense survival—we have it all.",
+            "Explore 150 different worlds right here.",
+            "No downloads, just instant gaming fun!",
+            "Having a bad day? A little Ultrakill might help.",
+            "Don't forget to check out Chicken Battle!",
+            "Is the principal watching? Good. Play anyway.",
+            "Your favorite games, 100% unblocked and ready.",
+            "Feeling competitive? Try Kart Bros.io or Rocket Soccer Derby!",
+            "The best way to spend a few minutes (or hours).",
+            "Get ready for some classic Slither.io action.",
+            "Which game will you master first?",
+            "Click on the icon to start your adventure!",
+            "Fresh games and classic thrills are waiting for you.",
+            "We make sure the fun is never blocked. Enjoy!",
+            "Need a boost? Try Ultimate Car Driving Game!",
+            "Drifting is mandatory. Try Drift Boss now!",
+            "Drive Mad is harder than it looks. Good luck!",
+        ];
+        let currentIndex = -1; 
+        const intervalTime = 10000; 
+        const fadeDurationSubtitle = 1000; 
+
+        function getNextRandomIndex(current) {
+            let newIndex;
+            do {
+                newIndex = Math.floor(Math.random() * phrases.length);
+            } while (newIndex === current); 
+            return newIndex;
+        }
+
+        function updateSubtitle() {
+            subtitleElement.classList.add('fade-out');
+
+            setTimeout(() => {
+                currentIndex = getNextRandomIndex(currentIndex);
+                const text = phrases[currentIndex];
+                
+                subtitleElement.textContent = text;
+                
+                subtitleElement.classList.remove('fade-out');
+            }, fadeDurationSubtitle); 
+        }
+
+        currentIndex = getNextRandomIndex(currentIndex);
+        subtitleElement.textContent = phrases[currentIndex];
+
+        setInterval(updateSubtitle, intervalTime);
+
+        // --- MUSIC CONTROL LOGIC (Existing) ---
+        const music = document.getElementById('background-music');
+        let played = false;
+        
+        function playOnFirstInteraction() {
+            if (!played) {
+                music.play().then(() => {
+                    played = true;
+                    document.removeEventListener('click', playOnFirstInteraction);
+                    document.removeEventListener('scroll', playOnFirstInteraction);
+                }).catch(error => {
+                    // Autoplay blocked, waiting for more interaction.
+                });
+            }
+        }
+
+        document.addEventListener('click', playOnFirstInteraction);
+        document.addEventListener('scroll', playOnFirstInteraction);
+
+
+        // --- PAUSE/PLAY WHEN TAB CHANGES (UPDATED FOR SAVED VOLUME) ---
+        let isPlaying = false; 
+        let fadeInterval = null;
+        const FADE_TIME_MS = 1000; 
+        
+        /**
+         * Gradually changes the volume of the audio element.
+         * @param {number} targetVolume - The final volume (0.0 to 1.0).
+         * @param {number} durationMs - The total time the fade should take.
+         * @param {function} onComplete - Callback function to run when the fade finishes.
+         */
+        function startFade(targetVolume, durationMs, onComplete) {
+            if (fadeInterval) {
+                clearInterval(fadeInterval);
+                fadeInterval = null;
+            }
+
+            const startVolume = music.volume;
+            const steps = 50; 
+            const volumeChangePerStep = (targetVolume - startVolume) / steps;
+            const intervalTime = durationMs / steps;
+
+            fadeInterval = setInterval(() => {
+                let currentVolume = music.volume;
+                let newVolume = currentVolume + volumeChangePerStep;
+
+                newVolume = Math.min(1, Math.max(0, newVolume));
+
+                music.volume = newVolume;
+
+                if ((volumeChangePerStep > 0 && newVolume >= targetVolume - 0.001) || 
+                    (volumeChangePerStep < 0 && newVolume <= targetVolume + 0.001)) {
+                    
+                    music.volume = targetVolume; 
+                    clearInterval(fadeInterval);
+                    fadeInterval = null;
+                    if (onComplete) {
+                        onComplete();
+                    }
+                }
+            }, intervalTime);
+        }
+
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                if (!music.paused) {
+                    isPlaying = true; 
+                    // Fade out to 0
+                    startFade(0, FADE_TIME_MS, () => {
+                        music.pause();
+                        // Volume remains near 0
+                    });
+                } else {
+                    isPlaying = false;
+                }
+            } else {
+                if (isPlaying && played) {
+                    // Set volume to 0.0 for silent play
+                    music.volume = 0.0;
+                    music.play().then(() => {
+                        // Fade in to the user's saved MAX_VOLUME
+                        startFade(MAX_VOLUME, FADE_TIME_MS);
+                    }).catch(error => {
+                        // Resuming music failed
+                    });
+                }
+            }
+        });
+        
+        // --- NEW: Loading Screen Hide Function ---
+        function hideLoadingScreen() {
+            const loadingScreen = document.getElementById('loading-screen');
+            const contentWrapper = document.getElementById('content-wrapper');
+
+            // 1. Start the fade out of the loading screen
+            loadingScreen.classList.add('hidden'); 
+            
+            // 2. After the fade transition (0.5s), make the main content visible and check the update log
+            setTimeout(() => {
+                contentWrapper.classList.add('visible'); 
+                
+                // Ensure music starts trying to play (if not already handled by a previous click)
+                if (!played) { 
+                     music.play().catch(e => console.log('Music start waiting for user interaction.'));
+                }
+                
+                // Check if the update log should be shown (after the loading screen is gone)
+                checkUpdateLog();
+                
+                // Optionally, remove the loading screen entirely from the DOM
+                loadingScreen.remove(); 
+            }, 500); // 500ms for the CSS transition to complete
+        }
+
+        // --- INITIAL SETUP ON DOMContentLoaded ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load and apply all settings on load
+            loadSettings(); 
+            // Apply background setting right away
+            applyBackgroundSetting();
+            
+            // Start the 3-second timer for the loading screen
+            setTimeout(hideLoadingScreen, 3000); 
+            // Note: Update log check is now inside hideLoadingScreen()
+        });
+        
+    </script>
+    </body>
+
+</html>
