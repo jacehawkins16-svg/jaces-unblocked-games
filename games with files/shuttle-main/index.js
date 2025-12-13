@@ -5,7 +5,7 @@ import { dynamicPath } from "@nebula-services/dynamic";
 import express from "express";
 
 const routes = [
-	["/", "index"],
+	["/", "shuttle-main/index.html"],
 	["/math", "games"],
 	["/physics", "apps"],
 	["/settings", "settings"]
