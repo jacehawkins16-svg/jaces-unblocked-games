@@ -643,7 +643,7 @@
                         <!DOCTYPE html>
                         <html lang="en">
                         <head>
-                            <title>Google Drive</title>
+                            <title>about:blank</title>
                             <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/images/branding/product/2x/drive_2020q4_32dp.png">
                             <style>
                                 html, body { margin: 0; padding: 0; overflow: hidden; height: 100%; width: 100%; }
@@ -797,12 +797,13 @@
             if (newWindow) {
                 try {
                     // 2. Construct the full HTML content with an iframe
+                    // MODIFIED: Changed the <title> from ${name} to 'about:blank'
                     const content = `
                         <!DOCTYPE html>
                         <html lang="en">
                         <head>
                             <meta charset="UTF-8">
-                            <title>${name}</title>
+                            <title>about:blank</title> 
                             <style>
                                 /* Make sure the iframe fills the entire window */
                                 html, body { margin: 0; padding: 0; overflow: hidden; height: 100%; width: 100%; background: #000; }
@@ -813,6 +814,7 @@
                                     display: block; 
                                 }
                             </style>
+                            <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/images/branding/product/2x/drive_2020q4_32dp.png">
                         </head>
                         <body>
                             <iframe id="game-frame" src="${link}" allowfullscreen></iframe>
@@ -1476,7 +1478,5 @@
         
     </script>
     </body>
-
-</html>
 
 </html>
