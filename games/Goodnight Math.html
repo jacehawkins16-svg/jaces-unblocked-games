@@ -1,35 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Goodnight Math Unblocked</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Screen Game</title>
     <style>
-        /* This CSS ensures the body and html have no default margins,
-           allowing the iframe to truly fill the entire viewport. */
-        html, body {
+        /* This CSS ensures the iframe takes up the whole screen and removes scrollbars */
+        body, html {
             margin: 0;
             padding: 0;
-            height: 100%;
             width: 100%;
-            overflow: hidden; /* Prevents scrollbars if content slightly exceeds viewport */
+            height: 100%;
+            overflow: hidden; /* Prevents scrollbars on the main page */
         }
-        /* This CSS targets the iframe to make it fill the parent (the body) */
-        #game-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        
+        iframe {
+            display: block; /* Removes any default spacing below the iframe */
+            width: 100vw; /* Viewport width */
+            height: 100vh; /* Viewport height */
+            border: none; /* Removes the default iframe border */
         }
     </style>
 </head>
 <body>
-
-<iframe
-  id="game-iframe"
-  src="/games with files/gn-math unblocked/index.html"
-  title="Goodnight Math Unblocked"
-  allowfullscreen="true" /* Allows the embedded content to go full-screen if it supports it */
-></iframe>
-
+    <iframe src="games with files/gn-math unblocked/index.html"></iframe>
 </body>
-
 </html>
-
