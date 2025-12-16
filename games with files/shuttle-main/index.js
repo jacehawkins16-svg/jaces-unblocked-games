@@ -5,17 +5,17 @@ import { dynamicPath } from "@nebula-services/dynamic";
 import express from "express";
 
 const routes = [
-	["/", "index"],
-	["/math", "games"],
-	["/physics", "apps"],
-	["/settings", "settings"]
+	["/", "games with files/shuttle-main/index"],
+	["/math", "games with files/shuttle-main/games"],
+	["/physics", "games with files/shuttle-main/apps"],
+	["/settings", "games with files/shuttle-main/settings"]
 ];
 
 const navItems = [
-	["/", "Home"],
-	["/math", "Games"],
-	["/physics", "Apps"],
-	["/settings", "Settings"]
+	["/", "games with files/shuttle-main/Home"],
+	["/math", "/games with files/shuttle-main/Games"],
+	["/physics", "/games with files/shuttle-main/Apps"],
+	["/settings", "/games with files/shuttle-main/Settings"]
 ];
 
 const bare = createBareServer("/bare/");
