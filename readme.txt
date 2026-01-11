@@ -1,7 +1,7 @@
 Copyright Notice and Content Usage Policy for Jace's Games
 Copyright Notice
 
-© 2025 Jace's Games. All rights reserved.
+© 2026 Jace's Games. All rights reserved.
 
 The games, code, artwork, graphics, textual content, and all other materials and intellectual property available on https://jaces-games.vercel.app/ are the sole property of Jace's Games, unless otherwise stated with individual credits on the site. All content is protected by United States and international copyright laws.
 
@@ -18,3 +18,4 @@ Enforcement and Copyright Infringement:
 Failure to include the required, proper, and visible attribution will be considered a direct violation of our intellectual property rights and an unauthorized use of our copyrighted material.
 
 Jace's Games reserves the right to pursue all available remedies under copyright law, including, but not limited to, the issuance of formal copyright infringement notifications (such as DMCA Takedown Notices) to hosting providers, domain registrars, or content platforms against any website or party that uses our content without proper credit or authorization.
+
